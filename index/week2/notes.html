@@ -102,6 +102,50 @@
             romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V');
             Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
     </p>
+    <h3>Chapter 4</h3>
+    <p>This starts with the function keyword and is followed by the name of the function, which in this case is called '
+        hello ', followed by parentheses. Following this is a block that contains the code for the function.</p>
+    <p>A function can also be declared using the constructor Function() . The body of the function is entered as a
+        string, as shown in this example:
+        const hi = new Function('console.log("Hi World!");');
+        It's not recommended to declare functions in this way as there are numerous problems associated with placing the
+        function body inside a string.</p>
+    <p>Don’t Repeat Yourself,or DRY, is a principle of programming that specifies that every part of a program should
+        only be written once. This avoids duplication and means there’s no need to keep multiple pieces of code up to
+        date and in sync.</p>
+    <p><strong>Arrow Functions</strong>
+        ES6 introduced a new syntax for declaring functions called thearrowsyntax. These make declaring functions much
+        more succinct by using less verbose syntax.
+
+        Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters come
+        before the arrow and the main body of the function comes after. Arrow functions are always anonymous, so if you
+        want to refer to them, you must assign them to a variable. For example, the square function we wrote earlier can
+        be written like so:
+
+        const square = x => x*x;
+        Arrow functions have a number of advantages over other ways of declaring functions:
+
+        <ol>They are much less verbose than normal function declarations.</ol>
+        <ol>Single parameters don't need putting into parentheses.</ol>
+        <ol>The body of the function doesn't need placing inside a block if it's only one line.</ol>
+        <ol>The return keyword isn't required if the return statement is the only statement in the body of the function.
+        </ol>The return keyword isn't required if the return statement is the only statement in the body of the
+        function.
+        <ol>They don't bind their own value of this to the function (we'll see why this is a particularly useful
+            property when we cover objects later in the book).</ol>
+        <ol>In the square example above parameter, x didn't need to go in parentheses because it's the only parameter.
+        </ol>
+
+        Multiple parameters need to go inside parentheses, for example, the following function adds two numbers
+        together:
+
+        const add = (x,y) => x + y;
+        If the function doesn't require any parameters, a pair of empty parentheses must go before the arrow:
+
+        const hello = () => alert('Hello World!');
+        In all the examples, the main body of the function fits onto one line, so there is no need to put it inside a
+        block or explicitly use the return keyword.
+    </p>
     <footer>
         <script src="js/portfolio.js"></script>
     </footer>
