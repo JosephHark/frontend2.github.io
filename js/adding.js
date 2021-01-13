@@ -26,7 +26,7 @@ function sum(number) {
 function reqThree() {
     const input1 = document.getElementById('number1').value;
     const input2 = document.getElementById('number2').value;
-    const outputElement = document.getElementById('total');
+    const outputElement = document.getElementById('sum');
 
     const num1Float = parseFloat(input1);
     const num2Float = parseFloat(input2);
