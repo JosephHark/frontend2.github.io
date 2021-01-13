@@ -12,7 +12,7 @@ const links = [{
 }
 ]
 
-const ol = document.querySelector("ol");
+const ol = document.getElementById("myWork")
 
 for (const item of links) {
 const li = document.createElement("li");
@@ -30,7 +30,7 @@ const team = [{
 }
 ]
 
-const teams = document.querySelector("il");
+const teams = document.getElementById("teams")
 
 for (const item of team) {
 const li = document.createElement("li");
