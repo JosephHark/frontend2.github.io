@@ -26,7 +26,7 @@ ol.appendChild(li);
 
 const team = [{
     label: "Week 02 Team Activity",
-    url: "teamActivity/team02.html"
+    url: "teamActivities/team02.html"
 }
 ]
 
