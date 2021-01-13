@@ -96,13 +96,6 @@ main h2 {
     font-weight: 900;
 }
 
-main p,
-main ul {
-    font-size: 1.25em;
-    font-weight: 800;
-
-}
-
 main ul li a {
 
     padding-left: .25em;
