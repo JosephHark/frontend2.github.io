@@ -35,3 +35,23 @@ function reqThree() {
         outputElement.innerHTML = 'Sum of the numbers entered: ' + total;
     }
 }
+
+
+function Stretch() {
+    const stretch1 = document.getElementById('stretch1').value;
+    const stretch2 = document.getElementById('stretch2').value;
+    const stretchTotal = document.getElementById('stretch');
+
+    const inputInt1 = parseInt(stretch1);
+    const inputInt2 = parseInt(stretch2);
+    if (inputInt1 !== NaN && inputInt2 !== NaN) {
+        stretchTotal.innerHTML ='Total' + sum(inputInt1) + sum(inputInt2);
+    }
+}
+function sum(number) {
+    let total = 0;
+    for (let i = 1; i <= number; i++) {
+        total += i;
+    }
+    return total;
+}
