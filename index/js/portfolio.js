@@ -30,14 +30,14 @@ const team = [{
 }
 ]
 
-const ol = document.querySelector("ol");
+const teams = document.querySelector("il");
 
-for (const item of links) {
+for (const item of team) {
 const li = document.createElement("li");
 const a = document.createElement("a");
 a.setAttribute("href", item.url);
 a.textContent = item.label;
 li.appendChild(a);
 
-ol.appendChild(li);
+teams.appendChild(li);
 }
