@@ -56,3 +56,52 @@ function sum(number) {
     }
     return total;
 }
+
+
+function func04add() {
+    const first = document.getElementById("input04.1").value;
+    const second = document.getElementById("input04.2").value;
+    if ((isNaN(first) === false) & (isNaN(second) === false)) {
+    const total = parseInt(first) + parseInt(second);
+    document.getElementById("output04").innerHTML = "These two numbers added together equals " + total;
+    }
+    else {
+    document.getElementById("output04").innerHTML = "Invalid entry, please try again";
+    }
+    }
+    
+    function func04sub() {
+    const first = document.getElementById("input04.1").value;
+    const second = document.getElementById("input04.2").value;
+    if ((isNaN(first) === false) & (isNaN(second) === false)) {
+    const total = parseInt(first) - parseInt(second);
+    document.getElementById("output04").innerHTML = first + " minus " + second + " equals " + total;
+    }
+    else {
+    document.getElementById("output04").innerHTML = "Invalid entry, please try again";
+    }
+    }
+    
+    function func04mult() {
+    const first = document.getElementById("input04.1").value;
+    const second = document.getElementById("input04.2").value;
+    if ((isNaN(first) === false) & (isNaN(second) === false)) {
+    const total = parseInt(first) * parseInt(second);
+    document.getElementById("output04").innerHTML = first + " times " + second + " equals " + total;
+    }
+    else {
+    document.getElementById("output04").innerHTML = "Invalid entry, please try again";
+    }
+    }
+    
+    function func04div() {
+    const first = document.getElementById("input04.1").value;
+    const second = document.getElementById("input04.2").value;
+    if ((isNaN(first) === false) & (isNaN(second) === false)) {
+    const total = parseInt(first) / parseInt(second);
+    document.getElementById("output04").innerHTML = first + " divided by " + second + " equals " + total;
+    }
+    else {
+    document.getElementById("output04").innerHTML = "Invalid entry, please try again";
+    }
+    }
