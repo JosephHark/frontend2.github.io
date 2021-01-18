@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio (by Joseph Hark for WDD 330 BYUI)" />
+    <link rel="stylesheet" href="css/small.css" />
+    <title>Week one Notes and application</title>
+</head>
+<header>
+    <h1>Portfolio</h1>
+    <h3>Joseph Hark</h3>
+    <h4>WDD 330</h4>
+</header>
+<main>
+    <nav>
+    </nav>
+    <h3>Chapter 2</h3>
+    <p>
+        Types of comments-
+        // this is a short comment
+
+        /* This is a longer comment
+        anything here will be ignored
+        This is a useful place to put notes
+        */</p>
+
+    <p>The syntax used by JavaScript is known as a C-style syntax because of its similarities with theC programming
+        language.- This is somethign that I didn't know</p>
+    <p>JavaScript has seven different data types-
+
+        String,
+
+        Symbol (The symbol primitive data type was only introduced in ES6.),
+
+        Number,
+
+        Boolean,
+
+        Undefined,
+
+        Null,
+    </p>
+    <p>Any value that isn’t one of the primitive data types listed above is anobject. These include arrays, functions
+        and object literals, which will be discussed in later chapters.</p>
+    <p>The backslash is used to escape special characters in strings such as:
+
+        Single quote marks \'
+
+        Double quote marks \"
+
+        End of line \n
+
+        Carriage return \r
+
+        Tab \t</p>
+    <p>JavaScript is known as a weakly typed or loosely typed language. This means that you don't need to explicitly
+        specify
+        what data-type a variable is when you declare it. This can lead to unexpected behavior and hard to find bugs in
+        code, particularly when type-coercion takes place in the background.
+
+        Strongly typedlanguages such as Java or Swift require the type of variables to be specified when they are
+        declared. Trying to use the wrong data-type will cause an error.</p>
+
+    <h3>Chapter 3</h3>
+
+    <p>Maps were another data structure introduced in the ES6 specification. They are a convenient way of keeping a list
+        of key and value pairs, and are similar to 'hashes', or 'hash tables' or 'dictionaries' in other programming
+        languages.
+
+        At first glance, maps appear to be similar to JavaScript objects (covered in Chapter 5), but they have some
+        noticeable differences:
+
+        Objects are limited to using strings for key values, whereas maps can use any data type as a key.
+        There is no efficient way to find the number of key-value pairs an object has, whereas this is easy to do with
+        maps using the size property.
+        Objects have methods that can be called (see Chapter 5) and prototypes that can be used to create a chain of
+        inheritance (see Chapter 12), whereas maps are solely focused on the storage and retrieval of key-value pairs.
+        The value of an object's properties can be accessed directly, whereas maps restrict you to using the get()
+        method to retrieve any values.</p>
+    <p>
+        <strong>Creating Maps</strong>
+        An empty map object can be created using the new operator and Map() constructor:
+
+        const romanNumerals = new Map();
+        There is, at the time of writing, no literal notation for creating maps.
+    </p>
+    <p>
+        <strong>Adding Entries To Maps</strong>
+            The set() method can be used to add a key and value pair to a map. The first value is the key and the second
+            is
+            the value:
+
+            romanNumerals.set(1,'I');
+            Map { 1 => 'I' }
+            The return value shows the mapping with the key connected to the value using the 'hash rocket' symbol ( =>
+            ).
+
+            Multiple items can be added to the set by repeatedly calling the set() method in one go:
+
+            romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V');
+            Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
+    </p>
+    <h3>Chapter 4</h3>
+    <p>This starts with the function keyword and is followed by the name of the function, which in this case is called '
+        hello ', followed by parentheses. Following this is a block that contains the code for the function.</p>
+    <p>A function can also be declared using the constructor Function() . The body of the function is entered as a
+        string, as shown in this example:
+        const hi = new Function('console.log("Hi World!");');
+        It's not recommended to declare functions in this way as there are numerous problems associated with placing the
+        function body inside a string.</p>
+    <p>Don’t Repeat Yourself,or DRY, is a principle of programming that specifies that every part of a program should
+        only be written once. This avoids duplication and means there’s no need to keep multiple pieces of code up to
+        date and in sync.</p>
+    <p><strong>Arrow Functions</strong>
+        ES6 introduced a new syntax for declaring functions called thearrowsyntax. These make declaring functions much
+        more succinct by using less verbose syntax.
+
+        Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters come
+        before the arrow and the main body of the function comes after. Arrow functions are always anonymous, so if you
+        want to refer to them, you must assign them to a variable. For example, the square function we wrote earlier can
+        be written like so:
+
+        const square = x => x*x;
+        Arrow functions have a number of advantages over other ways of declaring functions:
+
+        <ol>They are much less verbose than normal function declarations.</ol>
+        <ol>Single parameters don't need putting into parentheses.</ol>
+        <ol>The body of the function doesn't need placing inside a block if it's only one line.</ol>
+        <ol>The return keyword isn't required if the return statement is the only statement in the body of the function.
+        </ol>The return keyword isn't required if the return statement is the only statement in the body of the
+        function.
+        <ol>They don't bind their own value of this to the function (we'll see why this is a particularly useful
+            property when we cover objects later in the book).</ol>
+        <ol>In the square example above parameter, x didn't need to go in parentheses because it's the only parameter.
+        </ol>
+
+        Multiple parameters need to go inside parentheses, for example, the following function adds two numbers
+        together:
+
+        const add = (x,y) => x + y;
+        If the function doesn't require any parameters, a pair of empty parentheses must go before the arrow:
+
+        const hello = () => alert('Hello World!');
+        In all the examples, the main body of the function fits onto one line, so there is no need to put it inside a
+        block or explicitly use the return keyword.
+    </p>
+    <footer>
+        <script src="js/portfolio.js"></script>
+    </footer>
+</main>
+
+</html>
