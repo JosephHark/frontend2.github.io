@@ -100,7 +100,58 @@ If a property’s name doesn’t follow the rules for naming variables described
          </p>
          <h3>Chapter 6</h3>
          <p>
+            For example, we can access the body element of a web page and assign it to the variable body by entering the following code into the browser console:
 
+            const body = document.body;
+            Now we have a reference to the body element, we can check its type:
+            
+            typeof body;
+             "object";
+            This is a special Node object with a number of properties and methods that we can use to find information about, or modify, the body element.
+            
+            For example, we can use the nodeType property to find out what type of node it is:
+            
+            body.nodeType;
+             1
+            All nodes have a numerical code to signify what type they are. These are summmarized in the table below.
+            
+            Code	Type
+            1	element
+            2	attribute
+            3	text
+            8	comment
+            9	body
+         </p>
+         <p>
+            There are some methods from DOM Level 0 that can still be employed to access commonly used elements. These include:
+
+            Document.body returns the body element of a web page, as we saw in the previous example.
+           
+            Document.images returns a node list of all the images contained in the document.
+           
+            Document.links returns a node list of all the <a> elements and <area> elements that have an href attribute.
+           
+            Document.anchors returns a node list of all the <a> elements that have a name attribute.
+           
+            Document.forms returns a node list of all the forms in the document. 
+         </p>
+         <p>
+            The setAttribute can change the value of an element’s attributes. It takes two arguments: the attribute that you wish to change, and the new value of that attribute.
+
+            For example, if we wanted to change the class of the element in the wonderWoman variable to 'villain', we could do so using this code:
+            
+            wonderWoman.setAttribute('class', 'villain');
+             undefined
+            wonderWoman.getAttribute('class');
+             "villain"
+            If an element does not have an attribute, the setAttribute method can be used to add it to the element. For example, we can add an id of 'amazon' to the wonderWoman element:
+            
+            wonderWoman.setAttribute('id','amazon');
+            wonderWoman.getAttribute('id');
+             'amazon'
+         </p>
+         <p>
+             
          </p>
     <footer>
         <script src="js/portfolio.js"></script>
