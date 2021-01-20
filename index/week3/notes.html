@@ -151,6 +151,39 @@ If a property’s name doesn’t follow the rules for naming variables described
              'amazon'
          </p>
       <a href="heroes.html">Secondary Application Page</a>
+      <h3>Chapter 7</h3>
+      <p>
+        The following code can be used to attach an event listener to the document that fires when the user clicks anywhere on the page:
+
+        document.body.addEventListener("click", doSomething);
+      </p>
+      <p>
+        The original way of dealing with events in the browser was to use inline attributes that were added directly into the markup. Here’s an example that adds an onclick event handler to a paragraph element:
+
+        <p onclick="console.log('You Clicked Me!')">Click Me</p>
+        The JavaScript code inside the quote marks will be run when a user clicks on the paragraph. This method will still work in modern browsers, but it isn’t recommended for a number of reasons:
+        
+        The JavaScript code is mixed up with the HTML markup, breaking the concept of unobtrusive JavaScript, which advocates that JavaScript code should be kept out of the HTML.
+        
+        Only one event handler for each event-type can be attached to an element.
+        
+        The code for the event handlers is hidden away in the markup, making it difficult to find where these events have been declared.
+        
+        The JavaScript code has to be entered in a string, so you need to be careful when using apostrophes and quote marks.
+        
+        For these reasons, inline event handlers are best avoided, and have only been included here for the sake of completion, and in case you see them in some code examples online.
+      </p>
+      <p>In the next example, we are adding a click event listener to the whole page (because the addEventListener method is called without a node reference preceding it), and using an anonymous function as the callback:
+
+        addEventListener('click', () => alert('You Clicked!'));
+        Alternatively, a named function could be declared and then referenced in the event listener:
+        
+        function doSomething() {
+        alert('You Clicked!');
+        }
+        addEventListener('click',doSomething);</p>
+        <a href="events.html">Secondary Application Page</a>
+        <p></p>
     <footer>
         <script src="js/portfolio.js"></script>
     </footer>
