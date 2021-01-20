@@ -20,10 +20,6 @@ const links = [{
         url: "week3/app.html"
     },
 
-    {
-        label: "Week 03 Application",
-        url: "week3/heroes.html"
-    }
 ]
 
 const ol = document.getElementById("myWork")
