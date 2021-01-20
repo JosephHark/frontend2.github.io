@@ -41,6 +41,10 @@ for (const item of links) {
 const team = [{
     label: "Week 02 Team Activity",
     url: "teamActivities/team02.html"
+},
+{
+    label: "Week 03 Team Activity",
+    url: "teamActivities/team03.html"
 }]
 
 const teams = document.getElementById("teams")
