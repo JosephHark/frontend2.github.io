@@ -9,12 +9,20 @@ console.log(sorted);
 
 const totalYears = inventors.reduce((total, inventor) => {
   return total + (inventor.passed - inventor.year);
-},0);
+}, 0);
 console.log(totalYears);
 
-const oldest = inventors.sort(function(a, b) {
-  const lastInventor = a.passed - a.year;
-  const nextInventor = b.passed - b.year;
-  return lastInventor > nextInventor ? -1 : 1;
-});
-console.log(oldest);
+const age = inventors.sort((a, b) => a.passed - a.year > b.passed - b.year ? -1 : 1)
+console.log(age);
+
+console.log(people);
+
+const transportation = data.reduce(function(obj, item) {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(transportation);
