@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Portfolio (by Joseph Hark for WDD 330 BYUI)" />
+    <link rel="stylesheet" href="css/small.css" />
+    <title>Week one Notes and application</title>
+</head>
+<header>
+    <h1>Portfolio</h1>
+    <h3>Joseph Hark</h3>
+    <h4>WDD 330</h4>
+</header>
+<main>
+    <nav>
+    </nav>
+    <h3>Chapter 5</h3>
+    <p>
+        Here is an example of an object literal that describes the Man of Steel:
+        <blockquote>
+            const superman = {
+            name: 'Superman',
+            'real name': 'Clark Kent',
+            height: 75,
+            weight: 235,
+            hero: true,
+            villain: false,
+            allies: ['Batman','Supergirl','Superboy'],
+            fly() {
+            return 'Up, up and away!';
+            }
+            };
+        </blockquote>
+        Each property is a key-value pair, separated by commas. In the example, the first property is called name and
+        its value is 'Superman' , while the fly() property is a method, as its value is a function, signified by the
+        parentheses placed after it. If there were further methods after this, they would be comma-separated as well.
+
+        If a property’s name doesn’t follow the rules for naming variables described in Chapter 2, it needs to be
+        quoted. The property 'real name' in the example above needs to be quoted because it contains a space.
+    </p>
+    <p>
+        The ability to create objects with computed property keys was introduced in ES6. This means that JavaScript code
+        can be placed inside square brackets and the property key will be the return value of that code. This can be
+        seen in the example below where the + operator is used to concatenate the strings 'catch' and 'phrase':
+
+        const hulk = { name: 'Hulk', ['catch' + 'Phrase']: 'Hulk Smash!' };
+        If we take a look at the hulk object, we can see the property key is named 'catchPhrase':
+
+        { name: 'Hulk', catchPhrase: 'Hulk Smash!' }
+    </p>
+    <p>The new Symbol date type can also be used as a computed property key:
+
+        const name = Symbol('name');
+        const supergirl = { [name]: 'Supergirl' };
+        You can access the property using the square bracket notation:
+
+        supergirl[name];
+        'Supergirl'</p>
+    <p>
+        There are two ways to create a regular expression. The first, and preferred way, is to use the literal notation
+        of writing the regular expression between forward slashes that we’ve already seen:
+
+        const pattern = /[a-zA-Z]+ing$/;
+        Alternatively, you can create a new instance of the RegExp object using the new operator and a constructor
+        function:
+
+        const pattern = new RegExp('[a-zA-Z]+ing');
+    </p>
+    <p>
+        Once you’ve created a regular expression object, you can use the test() method to see if a string (passed to the
+        method as a parameter) matches the regular expression pattern. It returns true if the pattern is in the string,
+        and false if it isn’t.
+
+        We can see an example of the test() method used below, using the same pattern we created earlier that tests if a
+        word ends in 'ing':
+
+        pattern.test('joke');
+        false
+        pattern.test('joking');
+        true
+        pattern.test('jokingly');
+        false
+    </p>
+    <p>
+        Groups of characters can be placed together inside square brackets. This character group represents anyoneof the
+        characters inside the brackets. For example, the following regular expression matches any vowel:
+
+        const vowels = /[aeiou]/
+        /[aeiou]/
+        A sequence of characters can also be represented by placing a dash [ - ] between the first and last characters;
+        for example, all the uppercase letters can be represented as:
+
+        /[A-Z]/
+        The digits 0-9 can be represented as:
+
+        /[0-9]/
+        If a \^ character is placed at the start of the sequence of characters with the brackets, it negates the
+        sequence, so the following regular expression represents any character that isnota capital letter:
+
+        /[^A-Z]/
+        These groups can be combined with letters to make a more complex pattern. For example, the following regular
+        expression represents the letter J (lowercase or capital) followed by a vowel, followed by a lowercase v,
+        followed by a vowel:
+
+        pattern = /[Jj][aeiou]v[aeiou]/;
+        /[Jj][aeiou]v[aeiou]/
+        pattern.test('JavaScript');
+        true
+        pattern.test('jive');
+        true
+        pattern.test('hello');
+        false
+    </p>
+    <h3>Chapter 6</h3>
+    <p>
+        For example, we can access the body element of a web page and assign it to the variable body by entering the
+        following code into the browser console:
+
+        const body = document.body;
+        Now we have a reference to the body element, we can check its type:
+
+        typeof body;
+        "object";
+        This is a special Node object with a number of properties and methods that we can use to find information about,
+        or modify, the body element.
+
+        For example, we can use the nodeType property to find out what type of node it is:
+
+        body.nodeType;
+        1
+        All nodes have a numerical code to signify what type they are. These are summmarized in the table below.
+
+        Code Type
+        1 element
+        2 attribute
+        3 text
+        8 comment
+        9 body
+    </p>
+    <p>
+        There are some methods from DOM Level 0 that can still be employed to access commonly used elements. These
+        include:
+
+        Document.body returns the body element of a web page, as we saw in the previous example.
+
+        Document.images returns a node list of all the images contained in the document.
+
+        Document.links returns a node list of all the <a> elements and <area> elements that have an href attribute.
+
+            Document.anchors returns a node list of all the <a> elements that have a name attribute.
+
+                Document.forms returns a node list of all the forms in the document.
+    </p>
+    <p>
+        The setAttribute can change the value of an element’s attributes. It takes two arguments: the attribute that you
+        wish to change, and the new value of that attribute.
+
+        For example, if we wanted to change the class of the element in the wonderWoman variable to 'villain', we could
+        do so using this code:
+
+        wonderWoman.setAttribute('class', 'villain');
+        undefined
+        wonderWoman.getAttribute('class');
+        "villain"
+        If an element does not have an attribute, the setAttribute method can be used to add it to the element. For
+        example, we can add an id of 'amazon' to the wonderWoman element:
+
+        wonderWoman.setAttribute('id','amazon');
+        wonderWoman.getAttribute('id');
+        'amazon'
+    </p>
+    <a href="heroes.html">Secondary Application Page</a>
+    <h3>Chapter 7</h3>
+    <p>
+        The following code can be used to attach an event listener to the document that fires when the user clicks
+        anywhere on the page:
+
+        document.body.addEventListener("click", doSomething);
+    </p>
+    <p>
+        The original way of dealing with events in the browser was to use inline attributes that were added directly
+        into the markup. Here’s an example that adds an onclick event handler to a paragraph element:
+
+        <p onclick="console.log('You Clicked Me!')">Click Me</p>
+        The JavaScript code inside the quote marks will be run when a user clicks on the paragraph. This method will
+        still work in modern browsers, but it isn’t recommended for a number of reasons:
+
+        The JavaScript code is mixed up with the HTML markup, breaking the concept of unobtrusive JavaScript, which
+        advocates that JavaScript code should be kept out of the HTML.
+
+        Only one event handler for each event-type can be attached to an element.
+
+        The code for the event handlers is hidden away in the markup, making it difficult to find where these events
+        have been declared.
+
+        The JavaScript code has to be entered in a string, so you need to be careful when using apostrophes and quote
+        marks.
+
+        For these reasons, inline event handlers are best avoided, and have only been included here for the sake of
+        completion, and in case you see them in some code examples online.
+    </p>
+    <p>In the next example, we are adding a click event listener to the whole page (because the addEventListener method
+        is called without a node reference preceding it), and using an anonymous function as the callback:
+
+        addEventListener('click', () => alert('You Clicked!'));
+        Alternatively, a named function could be declared and then referenced in the event listener:
+
+        function doSomething() {
+        alert('You Clicked!');
+        }
+        addEventListener('click',doSomething);</p>
+    <a href="events.html">Secondary Application Page</a>
+    <p></p>
+    <footer>
+        <script src="js/portfolio.js"></script>
+    </footer>
+</main>
+
+</html>
