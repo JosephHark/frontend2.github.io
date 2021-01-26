@@ -28,9 +28,31 @@
 
             <strong>textarea</strong> elements for longer text entry
 
-            <strong>button</strong> elements for submitting and resetting forms</p>
-            <a href="heroes.html">Search</a>
+            <strong>button</strong> elements for submitting and resetting forms
+        </p>
+        <a href="heroes.html">Search</a>
+        <p>
+            The input element includes some of the new attributes introduced in HTML5.
 
+            The autofocus attribute give focus to this element when a page loads. It is the equivalent to putting the
+            following line of JavaScript in main.js :
+
+            document.forms.hero.heroName.focus();
+            The placeholder attribute will insert the value provided in the input field until the user enters some text.
+            This can be useful to place hints about how to fill in the form.
+
+            The maxlength attribute will limit the number of characters that can be entered in the field to the value
+            given (in this case 32).
+
+            There are many new attributes that can be employed to make forms more user-friendly.
+        </p>
+        <p>Hidden fields can be created using input fields with type='hidden' . These are not displayed by the browser,
+            but have a 'value' attribute that can contain information that is submitted with the form. They are often
+            used to send information such as settings or information that the user has already provided. Note that the
+            information in these fields is in no way secret, as it’s visible in the HTML, so shouldn’t be used for
+            sensitive data. The value of a hidden input field can be changed using JavaScript in the same was as any
+            other input field.</p>
+        <p></p>
     </main>
     <footer>
         <script src="js/portfolio.js"></script>

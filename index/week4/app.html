@@ -10,20 +10,26 @@
 </head>
 
 <body>
-    <section class='dojo'>
-        <div class='quiz-body'>
-            <header>
-                <h1>Portfolio</h1>
-                <h3>Joseph Hark</h3>
-                <h4>WDD 330</h4>
-                <div id='score'>Score: <strong>0</strong></div>
-                <h1>Quiz Ninja!</h1>
-            </header>
-            <div id='question'></div>
-            <div id='result'></div>
-            <div id='info'></div>
-        </div>
-    </section>
+    <main>
+        <section class='dojo'>
+            <div class='quiz-body'>
+                <header>
+                    <div id='score'>Score: <strong>0</strong></div>
+                    <h1>Quiz Ninja!</h1>
+                </header>
+                <div id='question'></div>
+                <form id='response'>
+                    <input name='answer' type='text'>
+                    <button type='submit'>Submit Answer</button>
+                </form>
+                <div id='result'></div>
+                <div id='info'></div>
+                <button id='start'>Click to Start</button>
+            </div>
+        </section>
+    </main>
     <script src="js/portfolio.js"></script>
     <script src="js/w4app.js"></script>
 </body>
+
+</html>

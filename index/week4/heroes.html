@@ -1,16 +1,98 @@
 <!doctype html>
 <html lang='en'>
+
 <head>
     <meta charset='utf-8'>
     <title>Hero Form</title>
 </head>
+
 <body>
     <form id='hero'>
         <label for='heroName'>Name:
-            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
-        </label>
+            <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32
+                required> </label>
         <button type='submit'>Submit</button>
+
+        <label for='realName'>Real Name:
+            <input type='password' name='realName' id='realName'></label>
+
+        <p>Super Powers:</p>
+        <label for='flight'>Flight:
+            <input type='checkbox' id='flight' value='Flight' name='powers'>
+        </label>
+
+        <label for='strength'>Super Strength:
+            <input type='checkbox' id='strength' value='Strength' name='powers'>
+        </label>
+
+        <label for='speed'>Super Speed:
+            <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+        </label>
+
+        <label for='energy'>Energy Manipulation:
+            <input type='checkbox' id='energy' value='Energy Manipulation' name='powers'>
+        </label>
+
+        <label for='telekinesis'>Telekinesis:
+            <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+        </label>
+
+        <label for='telepathy'>Telepathy:
+            <input type='checkbox' id='telepathy' value='Telepathy' name='powers'>
+        </label>
+
+        <label for='bullet-proof'>Bullet-Proof:
+            <input type='checkbox' id='bullet-proof' value='bullet-proof' name='powers'>
+        </label>
+
+        <label for='enhanced-senses'>Enhanced Senses:
+            <input type='checkbox' id='enhanced-senses' value='enhanced-senses' name='powers'>
+        </label>
+
+        <label for='shape-shifting'>Shape-Shifting:
+            <input type='checkbox' id='shape-shifting'' value=' shape-shifting' name='powers'>
+        </label>
+
+        <p>What type of hero are you?</p>
+        <label for='hero'>Hero:
+            <input type='radio' name='category' value='Hero' id='hero'>
+        </label>
+
+        <label for='side-kick'>Side-Kick:
+            <input type='radio' name='category' value='Antihero' id='side-kick'>
+        </label>
+
+        <label for='anti-hero'>Anti-Hero:
+            <input type='radio' name='category' value='Antihero' id='anti-hero'>
+        </label>
+
+        <label for='villain'>Villain:
+            <input type='radio' name='category' value='Villain' id='villain'>
+        </label>
+
+        <label for='Pyschopath'>Pyschopath:
+            <input type='radio' name='category' value='Antihero' id='Pyschopath'>
+        </label>
+
+        <label for='age'>Age:
+            <input type='number' id='age' name='age' min=0 step=1></label>
+
+        <label for='City'>Base of Operations:
+            <select name='city' id='city'>
+                <option value='' selected>Choose a City</option>
+                <option value='Metropolis'>Metropolis</option>
+                <option value='Gotham City'>Gotham City</option>
+                <option value='Keystone City'>Keystone City</option>
+                <option value='Coast City'>Coast City</option>
+                <option value='Star City'>Star City</option>
+            </select>
+        </label>
+
+        <label for='origin'>Origin Story:
+            <textarea id='origin' name='origin' rows='20' cols='60'></textarea>
+        </label>
     </form>
     <script src='js/heroes.js'></script>
 </body>
+
 </html>
