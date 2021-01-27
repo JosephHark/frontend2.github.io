@@ -52,6 +52,222 @@
             information in these fields is in no way secret, as it’s visible in the HTML, so shouldn’t be used for
             sensitive data. The value of a hidden input field can be changed using JavaScript in the same was as any
             other input field.</p>
+
+        <h3>Chapter 12</h3>
+
+        <p>
+            Object-oriented programming is often used to model representations of objects in the real world. There are
+            three main concepts in OOP: encapsulation, polymorphism and inheritance.
+
+            <strong>Encapsulation</strong>
+            This demonstrates the concept of encapsulation: the inner workings are kept hidden inside the object and
+            only the essential functionalities are exposed to the end user, such as the 'on' button. In OOP, this
+            involves keeping all the programming logic inside an object and making methods available to implement the
+            functionality, without the outside world needing to knowhowit’s done.
+
+            <strong>Polymorphism</strong>
+            These examples demonstrate the concept of polymorphism: the same process can be used for different objects.
+            In OOP, this means various objects can share the same method, but also have the ability to override shared
+            methods with a more specific implementation.
+
+            <strong>Inheritance</strong>
+            This demonstrates the concept of inheritance: taking the features of one object then adding some new
+            features. In OOP, this means we can take an object that already exists and inherit all its properties and
+            methods. We can then improve on its functionality by adding new properties and methods.</p>
+        <p>
+            avaScript uses a prototypal inheritance model. This means that every class has a prototype property that is
+            shared by every instance of the class. So any properties or methods of a class’s prototype can be accessed
+            by every object instantiated by that class.
+
+            To see how this works, let’s create a class for creating ninja turtles:
+
+            class Turtle {
+            constructor(name) {
+            this.name = name;
+            this.weapon = 'hands';
+            }
+            sayHi() {
+            return `Hi dude, my name is ${this.name}`;
+            }
+            attack(){
+            return `Feel the power of my ${this.weapon}!`;
+            }
+            }
+        </p>
+        <p>
+            When creating a class, you would normally add any default properties and methods to the class declaration.
+            But what if you want to augment the class with extra methods and properties after it has been created? It
+            turns out that you can still do this using theprototypeproperty of the class. This is particularly useful if
+            you don't have access to the class declaration, but still want to add properties and methods to the class.
+
+            All classes and constructor functions have a prototype property that returns an object:
+
+            Turtle.prototype;
+            Turtle {}
+            All instances of the the Turtle class share all the properties and methods of its prototype. This means they
+            can call any methods of the prototype and access any of its properties. Since the prototype is just an
+            object, we can add new properties by assignment:
+
+            Turtle.prototype.weapon = 'Hands';
+            'Hands'
+            We can also add a method to the prototype in a similar way:
+
+            Turtle.prototype.attack = function(){
+            return `Feel the power of my ${this.weapon}!`;
+            }
+            [Function]
+            Now if we create a new Turtle instance, we can see that it inherits the weapon property and attack() method
+            from the Turtle.prototype object, as well as receiving the name property and sayHi() method from the class
+            declaration:
+
+            const raph = new Turtle('Raphael');
+            raph.name
+            'Raphael'
+            raph.sayHi()
+            'Hi dude, my name is Raphael'
+            raph.weapon
+            'Hands'
+            raph.attack()
+            'Feel the power of my Hands!'
+            Notice that there’s a reference to this.weapon in the prototype attack() method, and when the instance calls
+            the attack() method, it uses the instance’s weapon property. This is because this in the prototype always
+            refers to the instance that actually calls the method.
+        </p>
+        <p>
+            Be careful when using the prototype to set default values. They are shallow, (There’s more about shallow and
+            deep copies later in the chapter.) so any changes to an array or object made by an instance will be
+            reflected in the prototype, and therefore shared between all instances.
+
+            A golden rule to remember is:Never use arrays or objects as a default value in prototype.
+
+            This is not a problem if arrays or objects are set as default values from within the constructor function in
+            the class declaration.
+        </p>
+        <p>
+            The big change, however, is that now we have full control over the getter and setter methods. This means
+            that any private properties can only be changed in acontrolledway, so we can stop certain assignments from
+            being made by screening the data before any changes are made to a private property. For example, we could
+            insist that the color property is a string:
+
+            this.setColor = (color) => {
+            if(typeof color === 'string'){
+            return _color = color;
+            } else {
+            throw new Error('Color must be a string');
+            }
+            }
+            raph.setColor(4);
+            Error: Color must be a string
+        </p>
+        <p>
+            class Turtle {
+            constructor(name) {
+            this.name = name;
+            }
+            sayHi() {
+            return `Hi dude, my name is ${this.name}`;
+            }
+            swim() {
+            return `${this.name} paddles in the water`;
+            }
+            }
+
+            This class declaration is similar to before, and defines properties and methods for anormalturtle. In our
+            previous example, we then started adding more specific properties such as weapons that don't really apply to
+            normal turtles, they are forninja turtles. Instead of polluting the Turtle class with these properties, it
+            would be a good idea to create asub-classorchild classof the Turtle class called ninjaTurtle. This is
+            created in a similar fashion, using a class declaration, but notice the use of the extends keyword:
+
+            class NinjaTurtle extends Turtle {
+            constructor(name) {
+            super(name);
+            this.weapon = 'hands';
+            }
+            attack() { return `Feel the power of my ${this.weapon}!` }
+            }
+        </p>
+        <p>The number, string, and boolean primitive types that we met way back in Chapter 2 have their own
+            corresponding constructor functions: Number , String , and Boolean respectively.
+
+            Rather bizarrely, though, these constructors don’t produce primitive values:
+
+            new Number(2); // the return value looks like a primitive
+            2;
+            typeof Number(2); // but it's actually an object!
+            "object"
+            Similarly, primitive values are not instances of these constructor functions:
+
+            2 instanceof Number;
+            false
+            In fact, the two things are not strictly equal:
+
+            Number(2) === 2;
+            false
+            Primitives are actually without their own methods. The primitive wrapper objects Number , String , and
+            Boolean are used in the background to provide primitive values with methods. When a method is called on a
+            primitive value, JavaScript creates a wrapper object for the primitive, which converts it into an object and
+            then calls the method on the object. This means it’s possible to call methods on primitives, as we saw in
+            Chapter 2:
+
+            2..toExponential();
+            '2e+0'
+            In the background, something similar to this is happening:
+
+            new Number(2).toExponential();
+            '2e+0'</p>
+        <p>The Human object will be the prototype for any objects created using it as an argument and remember that
+            prototypes are live. This means that any changes made to the Human object will be reflected in all the
+            objects created this way.</p>
+        <p>When objects are copied by assignment, they are only copied by reference. This means that another object is
+            not actually created in memory; the new reference will just point to the old object. Any changes that are
+            made to either objects will affect both of them. Arrays and functions are objects, so whenever they’re
+            copied by assignment they will just point to the same object. And when one changes, they all change. This is
+            known as making a shallow copy of an object. A deep or hard copy will create a completely new object that
+            has all the same properties as the old object. The difference is that when a hard copy is changed, the
+            original remains the same. But when a shallow copy is changed, the original changes too.
+
+            This affects our mixin function when we try to copy a property that is an array or object, as can be seen in
+            this example:
+
+            const a = {};
+            const b = { numbers: [1,2,3] };
+            Object.assign(a,b);
+            { numbers: [1,2,3] }
+            a now has a reference to the numbers property in the b object, rather than its own copy. Any changes made to
+            either object will affect them both:
+
+            b.numbers.push(4);
+            4
+            b.numbers
+            [1,2,3,4]
+            a.numbers // This has also changed
+            [1,2,3,4]</p>
+        <p>ES6 introduced the for-of syntax for arrays and this does not require a nested function to be used, so this
+            remains bound to the superman object:
+
+            superman.findFriends = function() {
+            for(const friend of this.friends) {
+            console.log(`${friend.name} is friends with ${this.name}`);
+            };
+            }
+            superman.findFriends();
+            Batman is friends with Superman
+            Wonder Woman is friends with Superman
+            Aquaman is friends with Superman</p>
+        <p>Arrow functions were introduced in ES6, and one of the advantages of using them is that they don't have their
+            own this context, so this remains bound to the original object making the function call:
+
+            superman.findFriends = function() {
+            this.friends.forEach((friend) => {
+            console.log(`${friend.name} is friends with ${this.name}`);
+            }
+            );
+            }
+            superman.findFriends();
+            Batman is friends with Superman
+            Wonder Woman is friends with Superman
+            Aquaman is friends with Superman</p>
+        <h3>Chapter 15</h3>
         <p></p>
     </main>
     <footer>
