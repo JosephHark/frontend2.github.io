@@ -16,23 +16,26 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-        <table>
-            <tr>
-                <td></td>
-                <td class="one"></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td class="two"></td>
-                <td class="three"></td>
-                <td class="four"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td class="five"></td>
-                <td></td>
-            </tr>
-        </table>
+        <div id="clear">
+            <table id="myTable">
+                <tr>
+                    <td ontouchend="myFunction()"></td>
+                    <td class="one" ontouchend="myFunction()"></td>
+                    <td ontouchend="myFunction()"></td>
+                </tr>
+                <tr>
+                    <td class="two"></td>
+                    <td class="three"></td>
+                    <td class="four"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="five"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <input type="button" onclick="myFunction()" value="Reset table">
     </main>
     <script src="js/team04.js"></script>
 </body>
