@@ -50,6 +50,10 @@ const team = [{
 {
     label: "Week 03 Team Activity",
     url: "teamActivities/team03.html"
+},
+{
+    label: "Week 04 Team Activity",
+    url: "teamActivities/team04.html"
 }]
 
 const teams = document.getElementById("teams")

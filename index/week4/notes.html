@@ -268,7 +268,80 @@
             Wonder Woman is friends with Superman
             Aquaman is friends with Superman</p>
         <h3>Chapter 15</h3>
-        <p></p>
+        <p>The jQuery library uses the $ symbol as a convenient alias for the the global jQuery object that contains all
+            of jQuery's methods. This prevents the global scope from being polluted with any of jQuery’s methods. The $
+            symbol has become synonymous with jQuery, and you can confidently expect that any mention of it implies that
+            jQuery is being used.</p>
+        <p>The coupling of code refers to how dependent certain elements or modules of code are on each other. Two
+            pieces of code are said to be tightly coupled if one relies on the other to run. This often occurs if a
+            piece of code makes hard-coded references to another piece of code, requiring it to be used. This will often
+            mean that changes to one piece of code will necessitate changes in the other. On the other hand, two pieces
+            of code are said to loosely coupled if one piece of code can be easily substituted by another without
+            affecting the final outcome. This is often achieved by referring to common methods that are shared by the
+            alternative modules. For example, you might have a choice of two modules that simplify the process of
+            connecting to a websocket. Both of these modules would likely implement a connect() method, so your code
+            could simply refer to connect() rather than having to explicitly refer to a particular module. This would
+            then allow you change between the two modules without having to change any of the underlying code. It is
+            considered good design to keep code as loosely coupled as possible as this allows for the most flexibility
+            in developing systems of code, as different modules can be used independently and in a variety of different
+            applications, rather than being restricted to a single use-case.</p>
+        <p>Having more than one default export will result in a syntax error.
+
+            To import these default values, you would use the following code:
+
+            import PI from './pi.js';
+            import square from './square.js';
+            import stats from './stats.js';
+            The big difference with default exports is that you don't need to use curly braces or make any mention of
+            the value that is being imported, making the statement read more elegantly.</p>
+        <p>The alias that is assigned to the imported module does not have to match its name in the actual module. For
+            example, you could import the square function in the following way:
+
+            import sq from './square.js';</p>
+        <p>It is quite common to see the acronym MV* used to describe JavaScript frameworks, rather than MVC. This is
+            because many JavaScript implementations do not strictly follow the controller pattern. Sometimes controller
+            code is mixed into the views, and sometimes other patterns are used, such as Model-View-Presenter (MVP),
+            Model-View-ViewModel (MVVM), and AngularJS, which calls itself a Model-View-Whatever (MVW) framework. These
+            tend to be only slight variations on the MVC pattern, but for simplicity, MV* is used as a catch-all term.
+            There has been a recent trend for many of these frameworks to embrace a more component-based architecture,
+            which can be found in Angular (from version 2 onwards) and Ember 2.</p>
+        <p>Most web applications will need some form of persistence to save the information held in the models in order
+            to maintain state. This could be done using the Web Storage API that we covered in the last chapter. Another
+            option that’s often used in real-world applications is to send a JSON representation of the model to a
+            back-end database using Ajax whenever a model changes.</p>
+        <p>It is usually best to just install the latest version of a package, although there may be times when you need
+            to install a specific version of a package so it’s compatible with other packages.</p>
+        <p>Most projects will have a file in the root directory called 'README'. This files serves as the application's
+            documentation and contains information about it. If you leave the description field blank, then npm will use
+            the first line of the README file as the description.</p>
+        <p>You need to be careful about permissions when installing packages globally. When you install locally, you are
+            installing packages to a directory that the current user owns and has permission to alter. When you install
+            globally you are sometimes required to install the package into a system directory that you don't have
+            permission to access. This means you often need to sign in as a 'super user' to install them. There are some
+            security issues with doing this, and there can also be permission issues if packages try to alter or write
+            to any files.</p>
+        <p>You can easily remove a package that has been installed locally by simply deleting its directory from the
+            'node_modules' directory, but it is preferable to use npm as this will also take care of removing any
+            redundant dependencies as well as updating the package.json file to reflect the changes.
+
+            To remove it from the dependencies in package.json, you will need to use the save flag:
+
+            npm uninstall --save lodash
+            If it was installed as a devDependency , you will need to add the --save-dev flag to remove it from the
+            package.json file:
+
+            npm uninstall --save-dev jest
+            Global packages can be uninstalled by adding the --global or -g to the uninstall command:
+
+            npm uninstall --global lodash</p>
+        <p>Any third-party code installed using npm will be installed into a directory called node_modules . This can be
+            configured to use a different folder name, but for consistency it is best to stick to this convention.</p>
+        <p>The technique above can be used to run other processes, by adding them as properties of the "scripts" object.
+            npm's run command can then be used to run the code specified.
+
+            The property name "build" is arbitrary (although it is the convention), and it could be named anything ...
+            even "webpack".</p>
+
     </main>
     <footer>
         <script src="js/portfolio.js"></script>
