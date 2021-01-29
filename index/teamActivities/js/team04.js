@@ -1,4 +1,4 @@
-const board = document.getElementById('board');
+const board =document.getElementById('board');
 const resetButton = document.getElementById('reset');
 const player1 = 'X';
 const player2 = 'O';
