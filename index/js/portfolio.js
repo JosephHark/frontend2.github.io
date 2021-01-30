@@ -67,3 +67,21 @@ for (const item of team) {
 
     teams.appendChild(li);
 }
+
+const challenge = [{
+    label: "To Do Challenge",
+    url: "challenges/todo.html"
+},
+]
+
+const challenges = document.getElementById("challenges")
+
+for (const item of challenge) {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.setAttribute("href", item.url);
+    a.textContent = item.label;
+    li.appendChild(a);
+
+    challenges.appendChild(li);
+}

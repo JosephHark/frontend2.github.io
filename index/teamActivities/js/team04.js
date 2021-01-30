@@ -10,7 +10,6 @@ function addPiece(e) {
     if (player === player1) player = player2;
     else player = player1;
 }
-// table version
 function resetBoard() {
     console.dir(board);
     for (let i = 0; i < board.rows.length; i++) {
