@@ -22,13 +22,21 @@ const links = [{
     
     {
         label: "Week 04 Notes",
-        url: "week/notes.html"
+        url: "week4/notes.html"
     },
     {
         label: "Week 04 Application",
         url: "week4/app.html"
     },
 
+    {
+        label: "Week 05 Notes",
+        url: "week5/note.html"
+    },
+    {
+        label: "Week 05 Application",
+        url: "week5/app.html"
+    },
 ]
 
 const ol = document.getElementById("myWork")

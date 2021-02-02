@@ -16,11 +16,24 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-        <ul id="todoList"></ul>
-        <input type="text" id="todoInput" placeholder="enter your task" />
-        <button id="addToDo">Add</button>
+
+        <div id="myDIV" class="header">
+            <h2 style="margin:5px">My To Do List</h2>
+            <input type="text" id="myInput" placeholder="Title...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+
+        <ul id="myUL">
+        </ul>
     </main>
+    <footer>
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('active')"> Active Tasks</button>
+            <button class="btn" onclick="filterSelection('completed')"> Completed Tasks</button>
+          </div>
+    </footer>
+    <script src="js/todo.js"></script>
 </body>
-<script src="js/todo.js"></script>
 
 </html>
