@@ -15,7 +15,44 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-        
+        <h2>Chapter 10 Testing and Debugging</h2>
+        <p>System error ― there’s a problem with the system or external devices with which the program is interacting.
+
+            Programmer error ― the program contains incorrect syntax or faulty logic; it could even be as simple as a
+            typo.
+
+            User error ― the user has entered data incorrectly, which the program is unable to handle.
+        </p>
+        <p>Not using strict mode is often referred to as 'sloppy mode' as it’s forgiving of sloppy programming
+            practices. Strict mode encourages a better quality of JavaScript to be written that befits a ninja
+            programmer, so its use is recommended.
+
+            Strict mode simply requires the following string to be added to the first line of a JavaScript file:
+
+            'use strict';</p>
+        <p>You can even use strict mode on a per-function basis by adding the line inside a function. Strict mode will
+            then only be applied to anything inside that function:
+
+            function strictly(){
+            'use strict';
+            // function code goes here
+
+            In fact, the recommended way to invoke strict mode is to place all your code into a self-invoking function like so:
+
+            (function() {
+            'use strict';
+            // All your code would go inside this function
+            }());</p>
+        <p>These are self-contained pieces of code that are in strict mode by default, so the 'use strict' declaration is not required.</p>
+    <p>The recommended way to determine browser support for a feature is to use feature detection. This is done using an if statement to check whether an object or method exists before trying to actually call the method. For example, say we want to use the shiny new holoDeck API (as far as I know, this doesn't actually exist ... yet), we would wrap any method calls inside the following if block:
+
+        if (window.holoDeck) {
+            virtualReality.activate();
+        }</p>
+    <p>Remember to remove any references to the debugger command before shipping any code, otherwise the program will appear to freeze when people try to use it!</p>
+    <p></p>
+    <p></p>
+    <p></p>
     </main>
 </body>
 
