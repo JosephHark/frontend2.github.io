@@ -16,7 +16,12 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="showAll()"> Show all</button>
+            <button class="btn" onclick="hideCompleted()"> Active Tasks</button>
+            <button class="btn" onclick="hideNotCompleted()"> Completed Tasks</button>
+        </div>
+        
         <div id="myDIV" class="header">
             <h2 style="margin:5px">My To Do List</h2>
             <input type="text" id="myInput" placeholder="Title...">
@@ -27,11 +32,7 @@
         </ul>
     </main>
     <footer>
-        <div id="myBtnContainer">
-            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-            <button class="btn" onclick="filterSelection('active')"> Active Tasks</button>
-            <button class="btn" onclick="filterSelection('completed')"> Completed Tasks</button>
-          </div>
+
     </footer>
     <script src="js/todo.js"></script>
 </body>

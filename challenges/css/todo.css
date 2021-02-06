@@ -48,7 +48,15 @@ ul li.checked {
   color: #fff;
   text-decoration: line-through;
 }
-
+ .hideCompleted{
+  display: none;
+}
+.hideNotCompleted{
+  display: none;
+}
+.showAll{
+  display: block;
+}
 /* Add a "checked" mark when clicked on */
 ul li.checked::before {
   content: '';

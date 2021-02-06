@@ -18,6 +18,19 @@ for (i = 0; i < close.length; i++) {
     div.style.display = "none";
   }
 }
+// Click on a close button to show all
+function hideCompleted(){
+  const
+}
+
+// Click on a completed button to show the active list item
+function hideCompleted(){
+const
+}
+// Click on a completed button to show the completed list item
+function hideNotCompleted(){
+const
+}
 
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
