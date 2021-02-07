@@ -19,7 +19,7 @@ for (i = 0; i < close.length; i++) {
   }
 }
 // Click on a close button to show all
-function hideCompleted(){
+/*function hideCompleted(){
   const
 }
 
@@ -30,7 +30,7 @@ const
 // Click on a completed button to show the completed list item
 function hideNotCompleted(){
 const
-}
+}*/
 
 // Add a "checked" symbol when clicking on a list item
 var list = document.querySelector('ul');
@@ -39,6 +39,7 @@ list.addEventListener('click', function(ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
+
 
 // Create a new list item when clicking on the "Add" button
 function newElement() {
