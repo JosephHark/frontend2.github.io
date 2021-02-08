@@ -44,9 +44,19 @@ list.addEventListener('click', function(ev) {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var li = document.createElement("li");
+
   var inputValue = document.getElementById("myInput").value;
+  var dateValue = document.getElementById("date").value;
+  var seperate = "      Due By: "
+
   var t = document.createTextNode(inputValue);
+  var space = document.createTextNode(seperate);
+  var d = document.createTextNode(dateValue);
+
   li.appendChild(t);
+  li.appendChild(space);
+  li.appendChild(d);
+  
   if (inputValue === '') {
     alert("You must write something!");
   } else {
