@@ -17,19 +17,27 @@
     <main>
         <section id="addNewEntry">
             <input type="text" id="myInput" placeholder="Title..." tabindex="0" />
-            <button id="addNewItem" title="Add New Item To List" tabindex="0">Add</button>
+            <input type="date" id="date" placeholder="mm/dd/yyyy">
+            <button id="addNewItem" title="Add New Item To List">Add</button>
         </section>
+
         <section id="storeList">
             <div class="listTitle">
                 <h1>To Do List</h1>
             </div>
+
             <div id="myBtnContainer">
                 <button id="all"> Show all</button>
                 <button id="active"> Active Tasks</button>
                 <button id="completed"> Completed Tasks</button>
             </div>
+            <hr>
+            <ul id="listItems">
+                
+            </ul>
         </section>
     </main>
+    <script src="js/lists.js"></script>
     <footer>
 
     </footer>
