@@ -9,7 +9,7 @@ export default class ToDoItem {
     setId(id){
          this._id = id;
     }
-    get(){
+    getItem(){
         return this._item;
     }
     setItem(item){

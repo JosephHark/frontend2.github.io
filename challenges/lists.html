@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Portfolio (by Joseph Hark for WDD 330 BYUI)" />
+    <link rel="stylesheet" href="css/lists.css" />
     <title>Portfolio (To Do List)</title>
 </head>
 
@@ -15,29 +16,19 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-        <section id="addNewEntry">
-            <input type="text" id="myInput" placeholder="Title..." tabindex="0" />
-            <input type="date" id="date" placeholder="mm/dd/yyyy">
-            <button id="addNewItem" title="Add New Item To List">Add</button>
+        <section class="newItemEntry">
+            <form>
+                <input type="text" id="newItem" tabindex="0" placeholder="Titel..."/>
+                <button class="btn" id="addItem">Add</button>
+            </form>
         </section>
-
-        <section id="storeList">
-            <div class="listTitle">
-                <h1>To Do List</h1>
-            </div>
-
-            <div id="myBtnContainer">
-                <button id="all"> Show all</button>
-                <button id="active"> Active Tasks</button>
-                <button id="completed"> Completed Tasks</button>
-            </div>
+        <section class="listContainer">
+            <h1>To Do List</h1>
+            <button id="clearItems">Close</button>
             <hr>
-            <ul id="listItems">
-                
-            </ul>
         </section>
     </main>
-    <script src="js/lists.js"></script>
+    <script src="js/main.js" type="module"></script>
     <footer>
 
     </footer>
