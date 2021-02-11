@@ -76,7 +76,7 @@ for (const item of team) {
     teams.appendChild(li);
 }
 
-const links = [{
+const challenge = [{
     label: "To Do List",
     url: "challenges/lists.html"
 }
