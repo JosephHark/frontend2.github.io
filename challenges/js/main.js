@@ -74,11 +74,17 @@ const buildListItem = (item) => {
     const div = document.createElement("div");
     div.className = "item";
 
+    const line = document.createElement("input");
+    line.type = "checkbox";
+    line.id = item.getId();
+    line.tabIndex = 0;
+    addLine(line);
+
     const check = document.createElement("input");
     check.type = "checkbox";
     check.id = item.getId();
     check.tabIndex = 0;
-    addClickListener(check);
+    addCheckbox(check);
 
     const label = document.createElement("label");
     label.htmlFor = item.getId();
@@ -90,9 +96,33 @@ const buildListItem = (item) => {
     container.appendChild(div);
 };
 
-const addClickListener = (checkbox) => {
+const addCheckbox = (checkbox) => {
     checkbox.addClickListener("click", (event) => {
-        element.classList.add("completed")
+        var myNodelist = document.getElementsByTagName("LI");
+        var i;
+        for (i = 0; i < myNodelist.length; i++) {
+            var span = document.createElement("SPAN");
+            var txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            myNodelist[i].appendChild(span);
+        };
+
+        // Click on a close button to hide the current list item
+        var close = document.getElementsByClassName("close");
+        var i;
+        for (i = 0; i < close.length; i++) {
+            close[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+            };
+        };
+    });
+};
+const addLine = (checkbox) => {
+    checkbox.addEventListener("click", (event) => {
+        var list = document.querySelector('div');
+        list.classList.add("completed")
     });
 };
 
@@ -119,10 +149,7 @@ const processSubmission = () => {
 };
 
 const getNewEntry = () => {
-    const text = document.getElementById("newItem").value.trim();
-    const date = document.getElementById("newItemDate").value.trim();
-    text.appendChild(date);
-    return text;
+    return document.getElementById("newItem").value.trim();
 };
 
 const calcNextItemId = () => {
