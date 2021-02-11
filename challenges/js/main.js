@@ -97,8 +97,10 @@ const buildListItem = (item) => {
 };
 
 const addCheckbox = (checkbox) => {
-    checkbox.addClickListener("click", (event) => {
-        var myNodelist = document.getElementsByTagName("LI");
+    checkbox.addEventListener("click", (event) => {
+
+        //make a delete button
+        var myNodelist = document.querySelector('div');
         var i;
         for (i = 0; i < myNodelist.length; i++) {
             var span = document.createElement("SPAN");
