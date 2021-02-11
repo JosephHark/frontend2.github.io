@@ -78,7 +78,7 @@ for (const item of team) {
 
 const challenge = [{
     label: "To Do Challenge",
-    url: "challenges/todo.html"
+    url: "challenges/lists.html"
 },
 ]
 
