@@ -76,10 +76,10 @@ for (const item of team) {
     teams.appendChild(li);
 }
 
-const challenge = [{
-    label: "To Do Challenge",
+const links = [{
+    label: "To Do List",
     url: "challenges/lists.html"
-},
+}
 ]
 
 const challenges = document.getElementById("challenges")
