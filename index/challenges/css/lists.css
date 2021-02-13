@@ -1,5 +1,11 @@
 .checked {
-    background: #888;
-    color: #fff;
-    text-decoration: line-through;
-  }
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.deleted {
+  background: #888;
+  color: #fff;
+  display: none;
+}

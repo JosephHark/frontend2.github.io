@@ -23,9 +23,15 @@
                 <button class="btn" id="addItem">Add</button>
             </form>
         </section>
+        <div id="myBtnContainer">
+            <button class="btn" onclick="showAll()"> Show all</button>
+            <button class="btn" onclick="hideCompleted()"> Active Tasks</button>
+            <button class="btn" onclick="hideNotCompleted()"> Completed Tasks</button>
+        </div>
+        
+        <button id="clearItems">Clear</button>
         <section id="listItems">
             <h1>To Do List</h1>
-            <button id="clearItems">Clear</button>
             <hr>
         </section>
     </main>

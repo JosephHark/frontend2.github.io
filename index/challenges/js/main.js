@@ -19,6 +19,7 @@ const inItApp = () => {
 
     const clearItems = document.getElementById("clearItems");
     clearItems.addEventListener("click", (event) => {
+        const list = toDoList.getList();
         if (list.length) {
             const confirmed = confirm("Are you sure that you want to clear the entire list?");
             if (confirmed) {
@@ -38,7 +39,7 @@ const loadListObj = () => {
     if (typeof storedList !== "string") return;
     const parsedList = JSON.parse(storedList);
     parsedList.forEach(itemObj => {
-        const newToDoItem = createNewItem(itemObj._id, itemObj._item);
+        const newToDoItem = createNewItem(itemObj._id, itemObj._item, itemObj._date);
         toDoList.AddItemToList(newToDoItem);
     });
 };
@@ -66,7 +67,7 @@ const deleteContents = (parentElement) => {
 const renderList = () => {
     const list = toDoList.getList();
     list.forEach((item) => {
-        buildListItem(item);
+        buildListItem(item)
     });
 };
 
@@ -74,54 +75,44 @@ const buildListItem = (item) => {
     const div = document.createElement("div");
     div.className = "item";
 
-    const line = document.createElement("input");
-    line.type = "checkbox";
-    line.id = item.getId();
-    line.tabIndex = 0;
-    addLine(line);
+    const complete = document.createElement("input");
+    complete.type = "checkbox";
+    complete.id = item.getId();
+    complete.tabIndex = 0;
+    addCompleted(complete);
 
-    const check = document.createElement("input");
-    check.type = "checkbox";
-    check.id = item.getId();
-    check.tabIndex = 0;
-    addCheckbox(check);
+    /*processSubmission()*/
 
-    const label = document.createElement("label");
-    label.htmlFor = item.getId();
-    label.textContent = item.getId();
-    div.appendChild(line);
-    div.appendChild(check);
-    div.appendChild(label);
+    const deleted = document.createElement("input");
+    deleted.type = "checkbox";
+    deleted.tabIndex = 0;
+    addDeleted(deleted);
+
+    const task = document.createElement("label");
+    task.htmlFor = item.getId();
+    task.textContent = item.getItem();
+
+    /*const taskDate = document.createElement("date");
+    date.textContent = date.getDate();*/
+    
+
+    div.appendChild(complete);
+    div.appendChild(task);
+    //div.appendChild(taskDate);
+    div.appendChild(deleted);
+
     const container = document.getElementById("listItems");
     container.appendChild(div);
 };
 
-const addCheckbox = (checkbox) => {
+const addDeleted = (checkbox) => {
     checkbox.addEventListener("click", (event) => {
-
-        //make a delete button
-        var myNodelist = document.querySelector('div');
-        var i;
-        for (i = 0; i < myNodelist.length; i++) {
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
-            span.className = "close";
-            span.appendChild(txt);
-            myNodelist[i].appendChild(span);
-        };
-
-        // Click on a close button to hide the current list item
-        var close = document.getElementsByClassName("close");
-        var i;
-        for (i = 0; i < close.length; i++) {
-            close[i].onclick = function () {
-                var div = this.parentElement;
-                div.style.display = "none";
-            };
-        };
+        var list = document.querySelector('div');
+        list.classList.add("deleted")
     });
 };
-const addLine = (checkbox) => {
+
+const addCompleted = (checkbox) => {
     checkbox.addEventListener("click", (event) => {
         var list = document.querySelector('div');
         list.classList.add("completed")
@@ -142,7 +133,8 @@ const setFocusonItems = () => {
 
 const processSubmission = () => {
     const newEntryText = getNewEntry();
-    if (!newEntryText.length) return;
+ //   const newEntryDate = getNewDate();
+
     const nextItemId = calcNextItemId();
     const toDoItem = createNewItem(nextItemId, newEntryText);
     toDoList.AddItemToList(toDoItem);
@@ -151,21 +143,26 @@ const processSubmission = () => {
 };
 
 const getNewEntry = () => {
-    return document.getElementById("newItem").value.trim();
+    return document.getElementById("newItem").value;
 };
+/*
+const getNewDate = () => {
+    return document.getElementById("newItemDate").value;
+};*/
 
 const calcNextItemId = () => {
     let nexItemId = 1;
-    const list = toDoList.getList();
-    if (list.length > 0) {
-        nexItemId = list[list.length - 1].getId() + 1;
+    const ToDoList = toDoList.getList();
+    if (ToDoList.length > 0) {
+        nexItemId = ToDoList[ToDoList.length - 1].getId() + 1;
     }
     return nexItemId;
 };
 
 const createNewItem = (itemId, itemText) => {
-    const toDo = new ToDoItem();
+    const toDo = new ToDoItem()
     toDo.setId(itemId);
     toDo.setItem(itemText);
+ //   toDo.setDate(itemDate);
     return toDo;
 };

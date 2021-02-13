@@ -2,6 +2,8 @@ export default class ToDoItem {
     constructor(){
         this._id=null;
         this._item=null;
+        this._date=null;
+
     }
     getId(){
         return this._id;
@@ -14,5 +16,11 @@ export default class ToDoItem {
     }
     setItem(item){
          this._item = item;
+    }
+    getDate(){
+        return this._date;
+    }
+    setDate(date){
+         this._date = date;
     }
 }
