@@ -1,11 +1,18 @@
-.checked {
-  background: #888;
-  color: #fff;
+.completed {
   text-decoration: line-through;
 }
 
 .deleted {
-  background: #888;
-  color: #fff;
   display: none;
+}
+body{
+    margin: 0em 10vw;
+    box-shadow: var(--shadow) .5em .5em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    background-color:#CACF85 ;
+}
+html{
+    background-color:#658E9C  ;
+
 }
