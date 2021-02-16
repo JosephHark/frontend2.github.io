@@ -1,5 +1,6 @@
 
-.deleted {
+.completed {
+  text-decoration: line-through;
   display: none;
 }
 body{

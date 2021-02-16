@@ -95,7 +95,7 @@ const buildListItem = (item) => {
     const taskDate = document.createElement("date");
     taskDate.textContent = item.getDate();
 
-    const dueDate =document.createTextNode ("Due Date: ");
+    const dueDate = document.createTextNode("Due Date: ");
 
     div.appendChild(remove);
     div.appendChild(task);
@@ -113,16 +113,21 @@ const addDeleted = (deleted) => {
     deleted.addEventListener("click", (event) => {
         toDoList.removeItemFromList(deleted.id);
         updatePersistentDate(toDoList.getList())
-                setTimeout(() => {
+        setTimeout(() => {
             refreshThePage();
         }, 1250);
     });
 };
 
+
 const addCompleted = (remove) => {
     remove.addEventListener("click", (event) => {
-        var list = document.querySelector('div');
-        list.classList.add("deleted")
+        var list = document.querySelectorAll('div');
+        list.forEach((item) => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('completed');
+            });
+        });
     });
 };
 
