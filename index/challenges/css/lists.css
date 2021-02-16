@@ -1,16 +1,32 @@
-
 .completed {
   text-decoration: line-through;
   display: none;
 }
-body{
-    margin: 0em 10vw;
-    box-shadow: var(--shadow) .5em .5em;
-    border-bottom-left-radius: 2em;
-    border-bottom-right-radius: 2em;
-    background-color:#CACF85 ;
-}
-html{
-    background-color:#658E9C  ;
 
+body {
+  margin: 0em 10vw;
+  box-shadow: var(--shadow) .5em .5em;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
+  background-color: #CACF85;
+  padding: 15px;
+}
+
+html {
+  background-color: #658E9C;
+
+}
+.item{
+  margin: 8px;
+  padding: 7px;
+  margin-left: 10px;
+}
+.date{
+  float: right;
+  margin-right: 20px;
+
+}
+.deletedBox{
+  float: right;
+  margin-right: 4px;
 }

@@ -49,6 +49,8 @@ const refreshThePage = () => {
     renderList();
     clearItemEntryfield();
     setFocusonItems();
+    clearDateEntryfield();
+    setFocusonDate();
 };
 
 const clearListDisplay = () => {
@@ -80,28 +82,23 @@ const buildListItem = (item) => {
     remove.tabIndex = 0;
     addCompleted(remove);
 
-    /*processSubmission()*/
-
-    const deleted = document.createElement("input");
-    deleted.type = "checkbox";
-    deleted.id = item.getId();
-    deleted.tabIndex = 0;
-    addDeleted(deleted);
-
     const task = document.createElement("label");
     task.htmlFor = item.getId();
     task.textContent = item.getItem();
 
     const taskDate = document.createElement("date");
     taskDate.textContent = item.getDate();
+    taskDate.className = "date"
 
-    const dueDate = document.createTextNode("Due Date: ");
+    const deleted = document.createElement("input");
+    deleted.type = "checkbox";
+    deleted.id = item.getId();
+    deleted.tabIndex = 0;
+    addDeleted(deleted);
+    deleted.className = "deletedBox"
 
     div.appendChild(remove);
     div.appendChild(task);
-    div.innerHTML += ',     ';
-    div.appendChild(dueDate);
-    div.innerHTML += ' ';
     div.appendChild(taskDate);
     div.appendChild(deleted);
 
@@ -119,13 +116,12 @@ const addDeleted = (deleted) => {
     });
 };
 
-
 const addCompleted = (remove) => {
     remove.addEventListener("click", (event) => {
-        var list = document.querySelectorAll('div');
+        var list = document.querySelectorAll('.item');
         list.forEach((item) => {
             item.addEventListener('click', () => {
-                item.classList.toggle('completed');
+                item.classList.add('completed');
             });
         });
     });
@@ -141,6 +137,15 @@ const clearItemEntryfield = () => {
 
 const setFocusonItems = () => {
     document.getElementById("newItem").focus();
+};
+
+
+const clearDateEntryfield = () => {
+    document.getElementById("newItemDate").value = " ";
+};
+
+const setFocusonDate = () => {
+    document.getElementById("newItemDate").focus();
 };
 
 const processSubmission = () => {
