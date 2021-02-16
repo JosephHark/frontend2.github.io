@@ -1,0 +1,82 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;900&family=Lobster&display=swap');
+
+
+body {
+	height: 100vh;
+	display: grid;
+}
+
+main {
+	border: 1px solid rgba(200, 200, 200, 0.9);
+	background-color: rgba(200, 200, 200, 0.2);
+
+    min-height: 30vh;
+    padding: 1.5em 2em;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+}
+
+h2 {
+	text-align: center;
+}
+html {
+    font-size: 16px;
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: 0em 10vw;
+    box-shadow: var(--shadow) .5em .5em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+    background-color:#CACF85 ;
+    color:royalblue ;
+}
+
+header,
+footer {
+    padding: 0em 2em;
+    background-color: royalblue ;
+    color:#CACF85 ;
+}
+
+header {
+    max-height: 10em;
+    width: auto;
+    font-family: 'Lobster', cursive;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.052em;
+    line-height: 3em;
+    display: inline-block;
+    margin: 0em;
+}
+
+main h2 {
+    margin: 0em;
+
+    font-size: 2.441em;
+    line-height: 3em;
+    font-weight: 900;
+}
+
+main p,
+main ul {
+    font-size: 1.25em;
+    font-weight: 800;
+
+}
+
+footer {
+    margin: 0em;
+    padding: 1em;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}

@@ -16,7 +16,83 @@
         <h4>WDD 330</h4>
     </header>
     <main>
-        
+        <h2>Chapter 11</h2>
+        <p>A useful feature of this is that it provides result caching, ormemoization.
+
+            If a function takes some time to compute a return value, we can save the result in a cache property. Then if the same argument is used again later, we can return the value from the cache, rather than having to compute the result again. For example, say squaring a number was an expensive computational operation that took a long time. We could rewrite the square() function so it saved each result in a cache object that is a property of the function:
+            
+            function square(x){
+                square.cache = square.cache || {};
+                if (!square.cache[x]) {
+                    square.cache[x] = x*x;
+                }
+                return square.cache[x]
+            }</p>
+            <p>AnImmediately Invoked Function Expression– or IIFE – (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined. This is easily achieved by placing parentheses at the end of the function definition (remember we use parentheses to invoke a function). The function also has to be made into an expression, which is done by placing the whole declaration inside parentheses, as in this example:
+
+                (function(){
+                const temp = 'World';
+                console.log(`Hello ${temp}`);
+                })();</p>
+            <p>The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself, and even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as the function.
+
+                Consider the following function:
+                <br>
+                function party(){
+                    console.log('Wow this is amazing!');
+                    party = function(){
+                        console.log('Been there, got the T-Shirt');
+                    }
+                }
+                <br>
+                This logs a message in the console, then redefines itself to log a different message in the console. When the function has been called once, it will be as if it was defined like this:
+                <br>
+                function party() {
+                    console.log('Been there, got the T-Shirt');
+                }
+                <br>
+                Every time the function is called after the first time, it will log the message 'Been there, got the T-Shirt':
+                
+                party();
+                 'Wow this is amazing!'
+                party();
+                 'Been there, got the T-Shirt'
+                party();
+                 'Been there, got the T-Shirt'
+                 <br>
+                If the function is also assigned to another variable, this variable will maintain the original function definition and not be rewritten. This is because the original function is assigned to a variable, then within the function, a variable with the same name as the function is assigned to a different function. You can see an example of this if we create a variable called beachParty that is assigned to the party() function before it is called for the first time and redefined:
+                <br>
+                function party(){
+                    console.log('Wow this is amazing!');
+                    party = function(){
+                        console.log('Been there, got the T-Shirt');
+                    }
+                }
+                const beachParty = party; // note that the party function has not been invoked
+                beachParty(); // the party() function has now been redefined, even though it hasn't been called explicitly
+                 'Wow this is amazing!'
+                party(); 
+                 'Been there, got the T-Shirt'
+                beachParty(); // but this function hasn't been redefined
+                 'Wow this is amazing!'
+                beachParty(); // no matter how many times this is called it will remain the same
+                 'Wow this is amazing!'</p>
+
+            <p>If any properties have previously been set on the function, these will be lost when the function redefines itself. In the previous example, we can set a music property, and see that it no longer exists after the function has been invoked and redefined:
+                <br>
+                function party() {
+                    console.log('Wow this is amazing!');
+                    party = function(){
+                    console.log('Been there, got the T-Shirt');
+                    }
+                }
+                party.music = 'Classical Jazz'; // set a property of the function
+                party();
+                 "Wow this is amazing!"
+                party.music; // function has now been redefined, so the property doesn't exist
+                 undefined</p>
+            <p>The code example above uses theerror-firstcallback style popularized by Node.js. In this coding pattern, callbacks have two arguments. The first is the error argument, which is an error object provided if something goes wrong when completing the operation. The second argument is any data returned by the operation that can be used in the body of the callback.</p>
+            <p></p>
     </main>
     <footer>
         

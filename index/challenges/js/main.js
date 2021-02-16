@@ -75,16 +75,16 @@ const buildListItem = (item) => {
     const div = document.createElement("div");
     div.className = "item";
 
-    const complete = document.createElement("input");
-    complete.type = "checkbox";
-    complete.id = item.getId();
-    complete.tabIndex = 0;
-    addCompleted(complete);
+    const remove = document.createElement("input");
+    remove.type = "checkbox";
+    remove.tabIndex = 0;
+    addCompleted(remove);
 
     /*processSubmission()*/
 
     const deleted = document.createElement("input");
     deleted.type = "checkbox";
+    deleted.id = item.getId();
     deleted.tabIndex = 0;
     addDeleted(deleted);
 
@@ -92,30 +92,37 @@ const buildListItem = (item) => {
     task.htmlFor = item.getId();
     task.textContent = item.getItem();
 
-    /*const taskDate = document.createElement("date");
-    date.textContent = date.getDate();*/
-    
+    const taskDate = document.createElement("date");
+    taskDate.textContent = item.getDate();
 
-    div.appendChild(complete);
+    const dueDate =document.createTextNode ("Due Date: ");
+
+    div.appendChild(remove);
     div.appendChild(task);
-    //div.appendChild(taskDate);
+    div.innerHTML += ',     ';
+    div.appendChild(dueDate);
+    div.innerHTML += ' ';
+    div.appendChild(taskDate);
     div.appendChild(deleted);
 
     const container = document.getElementById("listItems");
     container.appendChild(div);
 };
 
-const addDeleted = (checkbox) => {
-    checkbox.addEventListener("click", (event) => {
-        var list = document.querySelector('div');
-        list.classList.add("deleted")
+const addDeleted = (deleted) => {
+    deleted.addEventListener("click", (event) => {
+        toDoList.removeItemFromList(deleted.id);
+        updatePersistentDate(toDoList.getList())
+                setTimeout(() => {
+            refreshThePage();
+        }, 1250);
     });
 };
 
-const addCompleted = (checkbox) => {
-    checkbox.addEventListener("click", (event) => {
+const addCompleted = (remove) => {
+    remove.addEventListener("click", (event) => {
         var list = document.querySelector('div');
-        list.classList.add("completed")
+        list.classList.add("deleted")
     });
 };
 
@@ -133,10 +140,10 @@ const setFocusonItems = () => {
 
 const processSubmission = () => {
     const newEntryText = getNewEntry();
- //   const newEntryDate = getNewDate();
+    const newEntryDate = getNewDate();
 
     const nextItemId = calcNextItemId();
-    const toDoItem = createNewItem(nextItemId, newEntryText);
+    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate);
     toDoList.AddItemToList(toDoItem);
     updatePersistentDate(toDoList.getList());
     refreshThePage();
@@ -145,10 +152,10 @@ const processSubmission = () => {
 const getNewEntry = () => {
     return document.getElementById("newItem").value;
 };
-/*
+
 const getNewDate = () => {
     return document.getElementById("newItemDate").value;
-};*/
+};
 
 const calcNextItemId = () => {
     let nexItemId = 1;
@@ -159,10 +166,10 @@ const calcNextItemId = () => {
     return nexItemId;
 };
 
-const createNewItem = (itemId, itemText) => {
+const createNewItem = (itemId, itemText, itemDate) => {
     const toDo = new ToDoItem()
     toDo.setId(itemId);
     toDo.setItem(itemText);
- //   toDo.setDate(itemDate);
+    toDo.setDate(itemDate);
     return toDo;
 };
