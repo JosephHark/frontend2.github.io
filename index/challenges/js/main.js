@@ -74,9 +74,7 @@ const renderList = () => {
 
 const buildListItem = (item) => {
     const div = document.createElement("div");
-   // div.classList.add("item");
-    div.classList.add("active");
-
+    div.classList.add("item");
 
     const remove = document.createElement("input");
     remove.type = "checkbox";
