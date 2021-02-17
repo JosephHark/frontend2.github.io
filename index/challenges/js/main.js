@@ -50,7 +50,6 @@ const refreshThePage = () => {
     clearItemEntryfield();
     setFocusonItems();
     clearDateEntryfield();
-    setFocusonDate();
 };
 
 const clearListDisplay = () => {
@@ -75,7 +74,9 @@ const renderList = () => {
 
 const buildListItem = (item) => {
     const div = document.createElement("div");
-    div.className = "item";
+   // div.classList.add("item");
+    div.classList.add("active");
+
 
     const remove = document.createElement("input");
     remove.type = "checkbox";
@@ -122,6 +123,7 @@ const addCompleted = (remove) => {
         list.forEach((item) => {
             item.addEventListener('click', () => {
                 item.classList.add('completed');
+               // item.classList.remove('active');
             });
         });
     });
@@ -142,10 +144,6 @@ const setFocusonItems = () => {
 
 const clearDateEntryfield = () => {
     document.getElementById("newItemDate").value = " ";
-};
-
-const setFocusonDate = () => {
-    document.getElementById("newItemDate").focus();
 };
 
 const processSubmission = () => {
