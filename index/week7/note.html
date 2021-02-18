@@ -118,6 +118,87 @@
             omitted when the original function was called. A final result is only returned once all the expected
             arguments have eventually been provided.
         </p>
+        <br>
+        <br>
+        <h2>Chapter 13</h2>
+        <p>JavaScript was originally designed as a client-side scripting language, meaning that it ran locally in the
+            browser, adding dynamic features to the web page that was returned from the server. Ajax allows JavaScript
+            to request resources from a server on behalf of the client. The resources requested are usually JSON data or
+            small fragments of text or HTML rather than a whole web page.
+
+            Consequently, a server is required when requesting resources using Ajax. Typically this involves using a
+            server-side language, such as PHP, Ruby, Node.js, or .NET to serve the data response following an Ajax
+            request (usually from a back-end database). </p>
+
+        <p>The same-origin policy in browsers blocks all requests from a domain that is different from the page making
+            the request. This policy is enforced by all modern browsers and is to stop any malicious JavaScript being
+            run from an external source. The problem is that the APIs of many websites rely on data being transferred
+            across domains.
+
+            Cross-origin resource sharing (CORS)is a solution to this problem as it allows resources to be requested
+            from another website outside the original domain. The CORS standard works by using HTTP headers to indicate
+            which domains can receive data. A website can have the necessary information in its headers to allow
+            external sites access to its API data. Most modern browsers support this method and respect the restrictions
+            specified in the headers.</p>
+        <p>The same-origin policy in browsers blocks all requests from a domain that is different from the page making
+            the request. This policy is enforced by all modern browsers and is to stop any malicious JavaScript being
+            run from an external source. The problem is that the APIs of many websites rely on data being transferred
+            across domains.
+
+            Cross-origin resource sharing (CORS)is a solution to this problem as it allows resources to be requested
+            from another website outside the original domain. The CORS standard works by using HTTP headers to indicate
+            which domains can receive data. A website can have the necessary information in its headers to allow
+            external sites access to its API data. Most modern browsers support this method and respect the restrictions
+            specified in the headers.</p>
+        <p>url – The URL of the requested resource (the only property that is required).<br>
+            method – a string that specifies which HTTP method should be used for the request. By default, this is
+            'GET'.<br>
+            headers – This is a Headers object (see later section) that provides details of the request's headers.<br>
+            mode – Allows you to specify if CORS is used or not. CORS is enabled by default.<br>
+            cache – Allows you to specify how the request will use the browser's cache. For example, you can force it to
+            request a resource and update the cache with the result, or you can force it to only look in the cache for
+            the resource.<br>
+            credentials – Lets you specify if cookies should be allowed with the request.<br>
+            redirect – Specifies what to do if the response returns a redirect. There’s a choice of three values:
+            'follow' (the redirect is followed), 'error' (an error is thrown) or 'manual' (the user has to click on a
+            link to follow the redirect).</p>
+        <p>The Web is built upon the Hypertext Transfer Protocol, or HTTP. When a client (usually a browser) makes a
+            request to a server, it contains information about which HTTP verb to use.HTTP verbs, also known as HTTP
+            methodsare the what HTTP uses to tell the server what type of request is being made, which then determines
+            the server will deal with the request.
+
+            The five most commonly used verbs when dealing with resources on the web are:
+
+            GET requests to retrieve resourcesThe Web is built upon the Hypertext Transfer Protocol, or HTTP. When a
+            client (usually a browser) makes a request to a server, it contains information about which HTTP verb to
+            use.HTTP verbs, also known as HTTP methodsare the what HTTP uses to tell the server what type of request is
+            being made, which then determines the server will deal with the request.
+
+            The five most commonly used verbs when dealing with resources on the web are:
+
+            GET requests to retrieve resources <br>
+
+            POST requests, usually used to create a resource but can actually perform any task<br>
+
+            PUT requests toupsert, which means insert a resource or update it entirely<br>
+
+            PATCH requests to make partial updates to a resource<br>
+
+            DELETE requests to delete a resources.<br>
+
+            By default, a link in a web page will make a GET request. Forms are also submitted using a GET request by
+            default, but they will often use a POST request.
+
+            POST requests, usually used to create a resource but can actually perform any task
+
+            PUT requests toupsert, which means insert a resource or update it entirely
+
+            PATCH requests to make partial updates to a resource
+
+            DELETE requests to delete a resources.
+
+            By default, a link in a web page will make a GET request. Forms are also submitted using a GET request by
+            default, but they will often use a POST request.</p>
 
     </main>
     <footer>

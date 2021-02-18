@@ -50,6 +50,7 @@ const refreshThePage = () => {
     clearItemEntryfield();
     setFocusonItems();
     clearDateEntryfield();
+    filterList();
 };
 
 const clearListDisplay = () => {
@@ -74,7 +75,7 @@ const renderList = () => {
 
 const buildListItem = (item) => {
     const div = document.createElement("div");
-    div.classList.add("item");
+    div.classList.add("item", "active");
 
     const remove = document.createElement("input");
     remove.type = "checkbox";
@@ -121,7 +122,7 @@ const addCompleted = (remove) => {
         list.forEach((item) => {
             item.addEventListener('click', () => {
                 item.classList.add('completed');
-               // item.classList.remove('active');
+                item.classList.remove('active');
             });
         });
     });
@@ -139,9 +140,56 @@ const setFocusonItems = () => {
     document.getElementById("newItem").focus();
 };
 
-
 const clearDateEntryfield = () => {
     document.getElementById("newItemDate").value = " ";
+};
+const filterList = () => {
+    filterAll();
+    filterCompleted();
+    filterActive();
+};
+
+
+const filterAll = () => {
+
+    const showAll = document.getElementById("all");
+    showAll.addEventListener("click", (event) => {
+        var item = document.getElementsByClassName("item");
+        var active = document.getElementsByClassName("active");
+        var completed = document.getElementsByClassName("completed");
+
+        if (active.style.display === 'none' || completed.style.display === 'none') {
+            item.style.display = 'block';
+        };
+    });
+};
+
+const filterCompleted = () => {
+
+    const showAll = document.getElementById("all");
+    showAll.addEventListener("click", (event) => {
+        var active = document.getElementsByClassName("active");
+        var completed = document.getElementsByClassName("completed");
+
+        if (completed.style.display === 'none') {
+            completed.style.display = 'block';
+            active.style.display = 'none';
+        };
+    });
+};
+
+const filterActive = () => {
+
+    const showAll = document.getElementById("all");
+    showAll.addEventListener("click", (event) => {
+        var active = document.getElementsByClassName("active");
+        var completed = document.getElementsByClassName("completed");
+
+        if (active.style.display === 'none') {
+            active.style.display = 'block';
+            completed.style.display = 'none';
+        };
+    });
 };
 
 const processSubmission = () => {
