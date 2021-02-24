@@ -1,25 +1,7 @@
 /*Tablet veiw*/
 @media only screen and (min-width: 400px) {
-    .rentals {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .navigation {
-        display: flex;
-    }
-
-    .small-table {
-        display: none
-    }
-
-    .medium-table {
-        display: table;
-    }
-
     .navigation li {
         display: block;
-        /* change state in small view */
         flex: 1 1 auto;
         align-items: center;
         justify-content: center;
@@ -31,51 +13,5 @@
 
     .navigation li:first-child {
         display: none;
-    }
-
-    form {
-        max-width: 30em;
-    }
-
-    form label,
-    form div {
-        display: block;
-        padding: 0;
-        margin: 0 auto;
-        margin-top: 3px;
-        width: 88%;
-    }
-
-    form textarea {
-        width: 80%;
-        margin: 0;
-        padding: 0;
-    }
-
-    form input {
-        width: 80%;
-    }
-
-    .tour-pictures {
-        max-width: 225px;
-        height: auto;
-    }
-
-    .head-img {
-        width: 150px;
-        height: auto;
-    }
-
-    .header-h1 {
-        margin: 0 0 0 17px;
-        background-color: #000080;
-        font-size: 24px;
-    }
-
-    .head-motto {
-        letter-spacing: 1pt;
-        margin-left: 20px;
-        font-size: 18px;
-
     }
 }
