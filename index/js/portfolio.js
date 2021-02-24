@@ -91,22 +91,6 @@ const challenge = [{
 {
     label: "Final Project",
     url: "final/home.html"
-},
-{
-    label: "Final Project",
-    url: "final/visit.html"
-},
-{
-    label: "Final Project",
-    url: "final/vistors_entry.html"
-},
-{
-    label: "Final Project",
-    url: "final/things_to_do.html"
-},
-{
-    label: "Final Project",
-    url: "final/reviews.html"
 }
 ]
 
