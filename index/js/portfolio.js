@@ -19,7 +19,7 @@ const links = [{
         label: "Week 03 Application",
         url: "week3/app.html"
     },
-    
+
     {
         label: "Week 04 Notes",
         url: "week4/notes.html"
@@ -60,17 +60,18 @@ for (const item of links) {
 }
 
 const team = [{
-    label: "Week 02 Team Activity",
-    url: "teamActivities/team02.html"
-},
-{
-    label: "Week 03 Team Activity",
-    url: "teamActivities/team03.html"
-},
-{
-    label: "Week 04 Team Activity",
-    url: "teamActivities/team04.html"
-}]
+        label: "Week 02 Team Activity",
+        url: "teamActivities/team02.html"
+    },
+    {
+        label: "Week 03 Team Activity",
+        url: "teamActivities/team03.html"
+    },
+    {
+        label: "Week 04 Team Activity",
+        url: "teamActivities/team04.html"
+    }
+]
 
 const teams = document.getElementById("teams")
 
@@ -91,6 +92,10 @@ const challenge = [{
 {
     label: "Final Project",
     url: "final/home.html"
+},
+{
+    label: "Final Project Plan Page",
+    url: "final/plan.html"
 }
 ]
 
