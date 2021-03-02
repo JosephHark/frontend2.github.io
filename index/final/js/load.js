@@ -1,6 +1,6 @@
-import Hikes from './locations.js';
+import Locations from './locations.js';
 //on load grab the array and insert it into the page
-const myHikes = new Hikes('hikes');
+const myLocations = new Locations('locations');
 window.addEventListener('load', () => {
-  myHikes.showHikeList();
+  myLocations.showLocationList();
 }); 
