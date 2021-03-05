@@ -22,53 +22,134 @@
         <p>The Browser Object Model
 
             Finding out browser information
-            
-            Browser history
-            
-            Controlling windows
-            
-            Cookies
-            
-            Timing functions
-            
-            Our project ― we’ll add a countdown timer to our quiz</p>
-        <p><h4>The BOM Only Makes Sense in a Browser Environment</h4><br>Remember that JavaScript can be run in different environments. The BOM only makes sense in a browser environment. This means that other environments (such as Node.js) probably won’t have a window object, although they will still have a global object; for example, Node.js has an object called global .
 
-            If you don’t know the name of the global object, you can also refer to it using the keyword this in the global scope. The following code provides a quick way of assigning the variable global to the global object:
-            
+            Browser history
+
+            Controlling windows
+
+            Cookies
+
+            Timing functions
+
+            Our project ― we’ll add a countdown timer to our quiz</p>
+        <p>
+            <h4>The BOM Only Makes Sense in a Browser Environment</h4><br>Remember that JavaScript can be run in
+            different environments. The BOM only makes sense in a browser environment. This means that other
+            environments (such as Node.js) probably won’t have a window object, although they will still have a global
+            object; for example, Node.js has an object called global .
+
+            If you don’t know the name of the global object, you can also refer to it using the keyword this in the
+            global scope. The following code provides a quick way of assigning the variable global to the global object:
+
             // from within the global scope
-            const global = this;</p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+            const global = this;
+        </p>
+        <p>In general, you should refer to global variables without using the window object; it’s less typing and your
+            code will be more portable between environments. An exception is if you need to check whether a global
+            variable has been defined. For example, the following code will throw a ReferenceError if x has not been
+            defined:</p>
+        <p>It’s worth reiterating again that these methods will stop the execution of a program in its tracks. This
+            means that everything will stop processing at the point the method is called, until the user
+            clicksOKorCancel. This can cause problems if the program needs to process something else at the same time or
+            the program is waiting for a callback function.
+
+            There are some occasions when this functionality can be used as an advantage, for example, a
+            window.confirm() dialog can be used as a final check to see if a user wants to delete a resource. This will
+            stop the program from going ahead and deleting the resource while the user decides what to do.
+
+            It’s also worth keeping in mind that most browsers allow users to disable any dialogs from repeatedly
+            appearing, meaning they are not a feature to be relied upon.</p>
+        <p>The window.history.go() method can be used to go to a specific page, where 0 is the current page:
+
+            window.history.go(1); // goes forward 1 page
+            window.history.go(0); // reloads the current page
+            window.history.go(-1); // goes back 1 page
+            There are also the window.history.forward() and window.history.back() methods that can be used to navigate
+            forwards and backwards by one page respectively, just like using the browser’s forward and back buttons.</p>
+        <p>These methods were largely responsible for giving JavaScript a bad name, as they were used for creating
+            annoying pop-up windows that usually contained intrusive advertisements. It’s also a bad idea from a
+            usability standpoint to resize or move a user’s window.
+
+            Many browsers block pop-up windows and disallow some of these methods to be called in certain cases. For
+            example, you can’t resize a window if more than one tab is open. You also can’t move or resize a window that
+            wasn’t created using window.open() .
+
+            It’s rare that it would be sensible to use any of these methods, so think very carefully before using them.
+            There will almost always be a better alternative, and a ninja programmer will endeavor to find it.</p>
+        <p>More Useful on Mobile
+            The Screen object has more uses for mobile devices. It also allows you to do things like turn off the
+            device’s screen, detect a change in its orientation or lock it in a specific orientation.</p>
+        <p>Many of the methods and properties covered in the previous section were abused in the past for dubious
+            activities such as user-agent sniffing, or detecting screen dimensions to decide whether or not to display
+            certain elements. These practices have (thankfully) now been superseded by better practices, such as media
+            queries and feature detection, which is covered in the next chapter.</p>
+            <p>The EU Cookie Directive is a piece of legislation that requires websites based in an EU country to ask for permission before setting any cookies. It’s possible, however, that in the future this requirement may be part of a global browser setting, rather than the onus being on each individual website to ask for permission to set cookies.</p>
+            <p>Applications that contain sensitive information shouldn’t rely on cookies expiring using these methods. Browsers can sometimes hold on to information stored in a cookie that should have expired when the “session restore” feature is used after a crash.</p>
+            <p>JavaScript’s cookie handling is quite basic and can also be quite cumbersome. Many developers use a library such asCookies.jsorjsCookie. You could even have a go at developing your own set of functions to make dealing with cookies easier.</p>
+            <p>Be careful when using a method that uses the this keyword with either of these timing methods. The binding of this is set to the window object, rather than the method’s object, so it can get some unexpected results:
+
+                const person = {
+                    name: 'Superman',
+                    introduce() { 
+                        console.log(`Hi, I'm ${this.name}`);
+                    }
+                };
+                                
+                setTimeout(person.introduce, 50);
+                 Hi, I'm
+                In the example above, the value of this.name is undefined because the code is looking for a property of the window object called name , which doesn’t exist.
+                
+                There are ways to bind this to the object instead, and these are discussed in Chapter 12.</p>
+                <p>he rotation animation example demonstrates how JavaScript can be used to perform animations in the browser. It could also be achieved using pure CSS animation with the following style rules in styles.css :
+
+                    #square {
+                        margin: 100px;
+                        width: 100px;
+                        height: 100px;
+                        background: #cc0;
+                        animation: spin 4s linear infinite;
+                    }
+                    @keyframes spin { from { transform:rotate(0deg); } to { transform:rotate(3600deg); } }
+                    In general, it is typically better to use CSS for any animation effects, although there may be times when JavaScript might be the better solution.</p>
+        <br>
+
         <h3>HTML5 APIs Chapter 14</h3>
-        <p>The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. They’re also private to a page, so are not intended to be used by an external service – their sole purpose is to be used by a JavaScript program. This means they’re perfect for adding data that can be used as a hook that the program utilizes to access information about a particular element on the page.<br>
+        <p>The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the
+            browser. They’re also private to a page, so are not intended to be used by an external service – their sole
+            purpose is to be used by a JavaScript program. This means they’re perfect for adding data that can be used
+            as a hook that the program utilizes to access information about a particular element on the page.<br>
 
             The names of these attributes can be decided by the developer, but they must use the following format:<br>
-            
+
             Start with data- .<br>
-            
+
             Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.<br>
-            
+
             Include an optional string value.<br>
-            
+
             Examples could be:<br>
-            
+
             data-powers = 'flight superSpeed'<br>
             data-rating = '5' <br>
             data-dropdown <br>
             data-user = 'DAZ' <br>
             data-max-length = '32'<br></p>
-        <p>The support for the data- attribute is generally very good in modern browsers. Even Internet Explorer 8 has partial support! Some older browsers are unable to understand the dataset property, however, but any data- attribute can be found using the standard getAttribute method. So the previous code could be replaced with the following if you still need to support older browsers:
+        <p>The support for the data- attribute is generally very good in modern browsers. Even Internet Explorer 8 has
+            partial support! Some older browsers are unable to understand the dataset property, however, but any data-
+            attribute can be found using the standard getAttribute method. So the previous code could be replaced with
+            the following if you still need to support older browsers:
 
             const powers = superman.getAttribute('data-powers');</p>
-        <p>At the time of writing, the Chrome browser won't let you run workers from local files like this. A workaround is start Chrome using the --allow-file-access-from-files flag, or simply use a different browser for this example.
+        <p>At the time of writing, the Chrome browser won't let you run workers from local files like this. A workaround
+            is start Chrome using the --allow-file-access-from-files flag, or simply use a different browser for this
+            example.
 
-            If you decide to use the --allow-file-access-from-files flag, make sure you only use this for development, rather than for regular browsing.</p>
-            <a href="https://josephhark.github.io/frontend2.github.io/index/week9/factors.html">Factorizing</a>
-        <p>The file containing the worker code is expected to be hosted on a server. This is the best option, but if you want to run an example locally you need to turn off thesame origin policysetting in the browser.</p>
-       
+            If you decide to use the --allow-file-access-from-files flag, make sure you only use this for development,
+            rather than for regular browsing.</p>
+        <a href="https://josephhark.github.io/frontend2.github.io/index/week9/factors.html">Factorizing</a>
+        <p>The file containing the worker code is expected to be hosted on a server. This is the best option, but if you
+            want to run an example locally you need to turn off thesame origin policysetting in the browser.</p>
+
     </main>
     <footer>
 
