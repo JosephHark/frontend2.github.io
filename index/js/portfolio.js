@@ -111,6 +111,10 @@ const challenge = [{
 {
     label: "Final Project Plan Page",
     url: "final/plan.html"
+},
+{
+    label: "Quakes Near Me",
+    url: "quakes/main.html"
 }
 ]
 
