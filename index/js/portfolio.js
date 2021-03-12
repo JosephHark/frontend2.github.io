@@ -59,7 +59,10 @@ const links = [{
     {
         label: "Week 09 Application",
         url: "week9/app.html"
-    },
+    },{
+        label: "Week 010 Notes",
+        url: "week10/note.html"
+    }
 ]
 
 const ol = document.getElementById("myWork")
