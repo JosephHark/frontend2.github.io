@@ -8,7 +8,7 @@ main {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-
+    background-color: #0275f4;
 }
 
 .navigation li:first-child {
@@ -28,4 +28,25 @@ main {
 
 .responsive li {
     display: block;
+}
+
+.head-img {
+    width: 125px;
+    height: auto;
+    grid-column: 1;
+}
+
+header {
+    background-color: #000080;
+    padding: 5px 0;
+    display: grid;
+    color: #0275f4;
+    display: grid;
+    grid-template-areas:
+        'img img header header header header'
+        'img img motto motto motto motto';
+}
+
+.footer {
+    display: flex;
 }
