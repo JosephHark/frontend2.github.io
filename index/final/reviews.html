@@ -33,14 +33,33 @@
           </div>
     </header>
     <main>
-        
+      <section class="newItemEntry">
+        <form id="itemEntryForm">
+            <input type="text" id="newItem" tabindex="0" autocomplete="off" placeholder="Title..."/>
+            <input type="date" id="newItemDate" tabindex="0" autocomplete="off" placeholder="Title..."/>
+            <button class="btn" id="addItem">Add</button>
+        </form>
+    </section>
+    <section>
+        <button class="btn" id="all" onclick="filterAll()">All Tasks </button>
+        <button class="btn" id="active" onclick="filterActive()">Active Tasks</button>
+        <button class="btn" id="completed" onclick="filterCompleted()">Completed Tasks</button>
+
+    </section>
+    
+    <button id="clearItems">Clear</button>
+    <section id="listItems">
+        <h1>To Do List</h1>
+        <hr>
+    </section>
+</main>
     </main>
     <footer>
         <p>&copy;2020 Scoots| Today's Date: <span id="currentDate"></span>
 
     </footer>
     <script src="js/main.js"></script>
-    <script src="js/review.js"></script>
+    <script src="js/review.js" type="module"></script>
 
 </body>
 
