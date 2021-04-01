@@ -65,41 +65,19 @@ const buildListItem = (item) => {
     var selectList = document.createElement("select");
     selectList.id = "mySelect";
 
-//Create and append the options
-for (var i = 0; i < array.length; i++) {
-    var option = document.createElement("option");
-    option.value = array[i];
-    option.text = array[i];
-    selectList.appendChild(option);
-}
+    //Create and append the options
+    for (var i = 0; i < array.length; i++) {
+        var option = document.createElement("option");
+        option.value = array[i];
+        option.text = array[i];
+        selectList.appendChild(option);
+    }
     div.appendChild(task);
     div.appendChild(taskDate);
     div.appendChild(selectList);
 
     const container = document.getElementById("listItems");
     container.appendChild(div);
-};
-
-const addDeleted = (deleted) => {
-    deleted.addEventListener("click", (event) => {
-        toDoList.removeItemFromList(deleted.id);
-        updatePersistentDate(toDoList.getList())
-        setTimeout(() => {
-            refreshThePage();
-        }, 1250);
-    });
-};
-
-const addCompleted = (remove) => {
-    remove.addEventListener("click", (event) => {
-        var list = document.querySelectorAll('.item');
-        list.forEach((item) => {
-            item.addEventListener('click', () => {
-                item.classList.add('completed');
-                item.classList.remove('active');
-            });
-        });
-    });
 };
 
 const updatePersistentDate = (listArray) => {
@@ -119,8 +97,11 @@ const clearDateEntryfield = () => {
 };
 const filterList = () => {
     filterAll();
-    filterCompleted();
-    filterActive();
+    filterne();
+    filternw();
+    filterse();
+    filtersw();
+
 };
 
 
@@ -134,34 +115,6 @@ const filterAll = () => {
 
         if (active.style.display === 'none' || completed.style.display === 'none') {
             item.style.display = 'block';
-        };
-    });
-};
-
-const filterCompleted = () => {
-
-    const showAll = document.getElementById("all");
-    showAll.addEventListener("click", (event) => {
-        var active = document.getElementsByClassName("active");
-        var completed = document.getElementsByClassName("completed");
-
-        if (completed.style.display === 'none') {
-            completed.style.display = 'block';
-            active.style.display = 'none';
-        };
-    });
-};
-
-const filterActive = () => {
-
-    const showAll = document.getElementById("all");
-    showAll.addEventListener("click", (event) => {
-        var active = document.getElementsByClassName("active");
-        var completed = document.getElementsByClassName("completed");
-
-        if (active.style.display === 'none') {
-            active.style.display = 'block';
-            completed.style.display = 'none';
         };
     });
 };
@@ -182,7 +135,8 @@ const getNewEntry = () => {
 };
 
 const getNewDate = () => {
-    return document.getElementById("newItemDate").value;
+    var d = new Date();
+    document.getElementById("newItemDate").innerHTML = d;
 };
 
 const calcNextItemId = () => {
