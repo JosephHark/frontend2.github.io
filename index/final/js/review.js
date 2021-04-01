@@ -15,27 +15,14 @@ const inItApp = () => {
     itemEntryForm.addEventListener("submit", (event) => {
         event.preventDefault();
         processSubmission();
-    });
-
-    const clearItems = document.getElementById("clearItems");
-    clearItems.addEventListener("click", (event) => {
-        const list = toDoList.getList();
-        if (list.length) {
-            const confirmed = confirm("Are you sure that you want to clear the entire list?");
-            if (confirmed) {
-                toDoList.clearList();
-
-                refreshThePage();
-            };
-        };
-    });
-    //Procedural
-    loadListObj();
-    refreshThePage();
+        //Procedural
+        loadListObj();
+        refreshThePage();
+    })
 };
 
 const loadListObj = () => {
-    const storedList = localStorage.getItem("myToDoList");
+    const storedList = localStorage.getItem("reviewList");
     if (typeof storedList !== "string") return;
     const parsedList = JSON.parse(storedList);
     parsedList.forEach(itemObj => {
@@ -45,25 +32,11 @@ const loadListObj = () => {
 };
 
 const refreshThePage = () => {
-    clearListDisplay();
     renderList();
     clearItemEntryfield();
     setFocusonItems();
     clearDateEntryfield();
     filterList();
-};
-
-const clearListDisplay = () => {
-    const parentElement = document.getElementById("listItems");
-    deleteContents(parentElement);
-};
-
-const deleteContents = (parentElement) => {
-    let child = parentElement.lastElementChild;
-    while (child) {
-        parentElement.removeChild(child);
-        child = parentElement.lastElementChild;
-    }
 };
 
 const renderList = () => {
@@ -77,11 +50,6 @@ const buildListItem = (item) => {
     const div = document.createElement("div");
     div.classList.add("item", "active");
 
-    const remove = document.createElement("input");
-    remove.type = "checkbox";
-    remove.tabIndex = 0;
-    addCompleted(remove);
-
     const task = document.createElement("label");
     task.htmlFor = item.getId();
     task.textContent = item.getItem();
@@ -90,17 +58,23 @@ const buildListItem = (item) => {
     taskDate.textContent = item.getDate();
     taskDate.className = "date"
 
-    const deleted = document.createElement("input");
-    deleted.type = "checkbox";
-    deleted.id = item.getId();
-    deleted.tabIndex = 0;
-    addDeleted(deleted);
-    deleted.className = "deletedBox"
+    //Create array of options to be added
+    var array = ["North East", "North West", "South East", "South West"];
 
-    div.appendChild(remove);
+    //Create and append select list
+    var selectList = document.createElement("select");
+    selectList.id = "mySelect";
+
+//Create and append the options
+for (var i = 0; i < array.length; i++) {
+    var option = document.createElement("option");
+    option.value = array[i];
+    option.text = array[i];
+    selectList.appendChild(option);
+}
     div.appendChild(task);
     div.appendChild(taskDate);
-    div.appendChild(deleted);
+    div.appendChild(selectList);
 
     const container = document.getElementById("listItems");
     container.appendChild(div);
@@ -129,7 +103,7 @@ const addCompleted = (remove) => {
 };
 
 const updatePersistentDate = (listArray) => {
-    localStorage.setItem("myToDoList", JSON.stringify(listArray));
+    localStorage.setItem("reviewList", JSON.stringify(listArray));
 };
 
 const clearItemEntryfield = () => {

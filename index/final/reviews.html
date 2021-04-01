@@ -37,19 +37,20 @@
         <form id="itemEntryForm">
             <input type="text" id="newItem" tabindex="0" autocomplete="off" placeholder="Title..."/>
             <input type="date" id="newItemDate" tabindex="0" autocomplete="off" placeholder="Title..."/>
-            <button class="btn" id="addItem">Add</button>
+            <button class="btn" id="addItem">Submit Review</button>
         </form>
     </section>
     <section>
-        <button class="btn" id="all" onclick="filterAll()">All Tasks </button>
-        <button class="btn" id="active" onclick="filterActive()">Active Tasks</button>
-        <button class="btn" id="completed" onclick="filterCompleted()">Completed Tasks</button>
+        <button class="btn" id="all" onclick="filterAll()">All Reviews </button>
+        <button class="btn" id="ne" onclick="filterne()">North East</button>
+        <button class="btn" id="nw" onclick="filternw()">North West</button>
+        <button class="btn" id="se" onclick="filterse()">South East</button>
+        <button class="btn" id="sw" onclick="filtersw()">South West</button>
 
     </section>
     
-    <button id="clearItems">Clear</button>
     <section id="listItems">
-        <h1>To Do List</h1>
+        <h1>Other Visitor's Reviews</h1>
         <hr>
     </section>
 </main>
