@@ -36,7 +36,7 @@ const refreshThePage = () => {
     clearItemEntryfield();
     setFocusonItems();
     clearDateEntryfield();
-    filterList();
+   // filterList();
 };
 
 const renderList = () => {
@@ -95,6 +95,7 @@ const setFocusonItems = () => {
 const clearDateEntryfield = () => {
     document.getElementById("newItemDate").value = " ";
 };
+/*
 const filterList = () => {
     filterAll();
     filterne();
@@ -102,7 +103,6 @@ const filterList = () => {
     filterse();
     filtersw();
 };
-
 
 const filterAll = () => {
     const showAll = document.getElementById("all");
@@ -116,6 +116,7 @@ const filterAll = () => {
         };
     });
 };
+*/
 
 const processSubmission = () => {
     const newEntryText = getNewEntry();
@@ -133,12 +134,26 @@ const getNewEntry = () => {
 };
 
 const getNewDate = () => {
-    var d = new Date();
-    var n = d.getDate();
-    var m = d.getMonth();
-    var y = d.getFullYear();
-    var f = n + m + y;
-        document.getElementById("newItemDate").innerHTML = f;
+  
+let monthNames = ["January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+
+let d = new Date();
+let month = monthNames[d.getMonth()];
+let year = d.getFullYear();
+let fulldate =  d.getDate() + month + "  " + year;
+document.getElementById("newItemDate").innerHTML = fulldate;
 };
 
 const calcNextItemId = () => {
