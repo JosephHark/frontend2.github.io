@@ -101,12 +101,10 @@ const filterList = () => {
     filternw();
     filterse();
     filtersw();
-
 };
 
 
 const filterAll = () => {
-
     const showAll = document.getElementById("all");
     showAll.addEventListener("click", (event) => {
         var item = document.getElementsByClassName("item");
@@ -136,7 +134,11 @@ const getNewEntry = () => {
 
 const getNewDate = () => {
     var d = new Date();
-    document.getElementById("newItemDate").innerHTML = d;
+    var n = d.getDate();
+    var m = d.getMonth();
+    var y = d.getFullYear();
+    var f = n + m + y;
+        document.getElementById("newItemDate").innerHTML = f;
 };
 
 const calcNextItemId = () => {
