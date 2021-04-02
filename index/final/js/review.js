@@ -82,8 +82,12 @@ const buildListItem = (item) => {
     name.textContent = item.getName() + a + taskDate;
     name.className = "name"
 
+    const region = document.createElement("label");
+    region.textContent = item.getRegion();
+
     div.appendChild(name);
     div.appendChild(task);
+    div.appendChild(region);
 
     const container = document.getElementById("listItems");
     container.appendChild(div);
