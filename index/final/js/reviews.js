@@ -3,6 +3,7 @@ export default class ToDoItem {
         this._id=null;
         this._item=null;
         this._date=null;
+        this._name=null;
 
     }
     getId(){
@@ -22,5 +23,11 @@ export default class ToDoItem {
     }
     setDate(date){
          this._date = date;
+    }
+    getName(){
+        return this._name;
+    }
+    setName(name){
+         this._name = name;
     }
 }

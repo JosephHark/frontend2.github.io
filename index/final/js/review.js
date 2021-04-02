@@ -26,7 +26,7 @@ const loadListObj = () => {
     if (typeof storedList !== "string") return;
     const parsedList = JSON.parse(storedList);
     parsedList.forEach(itemObj => {
-        const newToDoItem = createNewItem(itemObj._id, itemObj._item, itemObj._date);
+        const newToDoItem = createNewItem(itemObj._id, itemObj._item, itemObj._date, itemObj._name);
         toDoList.AddItemToList(newToDoItem);
     });
 };
@@ -58,6 +58,10 @@ const buildListItem = (item) => {
     taskDate.textContent = item.getDate();
     taskDate.className = "date"
 
+    const name = document.createElement("text");
+    const d = " wrote on "
+    name.textContent = item.getName() + d + taskDate;
+    name.className = "name"
     //Create array of options to be added
     var array = ["North East", "North West", "South East", "South West"];
 
@@ -72,8 +76,8 @@ const buildListItem = (item) => {
         option.text = array[i];
         selectList.appendChild(option);
     }
+    div.appendChild(name);
     div.appendChild(task);
-    div.appendChild(taskDate);
     div.appendChild(selectList);
 
     const container = document.getElementById("listItems");
