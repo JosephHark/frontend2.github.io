@@ -36,10 +36,18 @@
       <section class="newItemEntry">
         <form id="itemEntryForm">
           Please Enter Your Name:<br>
-          <input type="text" id="newItem" tabindex="0" autocomplete="off" placeholder="John Smith..."/>
-          <input type="text" id="newName" tabindex="0" autocomplete="off" placeholder="Title..."/>
-            <div id="newItemDate"/>
-            <button class="btn" id="addItem">Submit Review</button>
+          <input type="text" id="newName" tabindex="0" autocomplete="off" placeholder="John Smith..."/>
+
+          <textarea id="newItem" rows="5" cols="50" tabindex="0" autocomplete="off" placeholder="What a great spot..."></textarea>
+            <div id="newItemDate"></div>
+            <label for="region">Choose a region:</label>
+
+            <select name="region" id="region">
+              <option value="ne">North East</option>
+              <option value="nw">North West</option>
+              <option value="se">South East</option>
+              <option value="sw">South West</option>
+            </select>            <button class="btn" id="addItem">Submit Review</button>
         </form>
     </section>
     <section>

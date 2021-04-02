@@ -36,7 +36,7 @@ const refreshThePage = () => {
     clearItemEntryfield();
     setFocusonItems();
     clearDateEntryfield();
-   // filterList();
+    // filterList();
 };
 
 const renderList = () => {
@@ -54,31 +54,36 @@ const buildListItem = (item) => {
     task.htmlFor = item.getId();
     task.textContent = item.getItem();
 
-    const taskDate = document.createElement("date");
+    let monthNames = ["January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ];
+
+    let d = new Date();
+    let month = monthNames[d.getMonth()];
+    let year = d.getFullYear();
+    let fulldate = d.getDate() + "  " + month + "  " + year;
+    const taskDate = fulldate;
+
     taskDate.textContent = item.getDate();
     taskDate.className = "date"
 
     const name = document.createElement("text");
-    const d = " wrote on "
-    name.textContent = item.getName() + d + taskDate;
+    const a = " wrote on "
+    name.textContent = item.getName() + a + taskDate;
     name.className = "name"
-    //Create array of options to be added
-    var array = ["North East", "North West", "South East", "South West"];
 
-    //Create and append select list
-    var selectList = document.createElement("select");
-    selectList.id = "mySelect";
-
-    //Create and append the options
-    for (var i = 0; i < array.length; i++) {
-        var option = document.createElement("option");
-        option.value = array[i];
-        option.text = array[i];
-        selectList.appendChild(option);
-    }
     div.appendChild(name);
     div.appendChild(task);
-    div.appendChild(selectList);
 
     const container = document.getElementById("listItems");
     container.appendChild(div);
@@ -125,9 +130,10 @@ const filterAll = () => {
 const processSubmission = () => {
     const newEntryText = getNewEntry();
     const newEntryDate = getNewDate();
+    const newEntryname = getNewName();
 
     const nextItemId = calcNextItemId();
-    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate);
+    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate, newEntryname);
     toDoList.AddItemToList(toDoItem);
     updatePersistentDate(toDoList.getList());
     refreshThePage();
@@ -137,27 +143,12 @@ const getNewEntry = () => {
     return document.getElementById("newItem").value;
 };
 
-const getNewDate = () => {
-  
-let monthNames = ["January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
+const getNewName = () => {
+    return document.getElementById("newName").value;
+};
 
-let d = new Date();
-let month = monthNames[d.getMonth()];
-let year = d.getFullYear();
-let fulldate =  d.getDate() + month + "  " + year;
-document.getElementById("newItemDate").innerHTML = fulldate;
+const getNewDate = () => {
+    return document.getElementById("newItemDate").value;
 };
 
 const calcNextItemId = () => {
@@ -169,10 +160,11 @@ const calcNextItemId = () => {
     return nexItemId;
 };
 
-const createNewItem = (itemId, itemText, itemDate) => {
+const createNewItem = (itemId, itemText, itemDate, itemName) => {
     const toDo = new ToDoItem()
     toDo.setId(itemId);
     toDo.setItem(itemText);
     toDo.setDate(itemDate);
+    toDo.setName(itemName);
     return toDo;
 };
