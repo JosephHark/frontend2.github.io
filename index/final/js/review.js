@@ -135,9 +135,10 @@ const processSubmission = () => {
     const newEntryText = getNewEntry();
     const newEntryDate = getNewDate();
     const newEntryname = getNewName();
+    const newEntryRegion = getNewRegion();
 
     const nextItemId = calcNextItemId();
-    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate, newEntryname);
+    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate, newEntryname, newEntryRegion);
     toDoList.AddItemToList(toDoItem);
     updatePersistentDate(toDoList.getList());
     refreshThePage();
