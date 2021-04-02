@@ -156,6 +156,10 @@ const getNewDate = () => {
     return document.getElementById("newItemDate").value;
 };
 
+const getNewRegion = () => {
+    return document.getElementById("region").value;
+};
+
 const calcNextItemId = () => {
     let nexItemId = 1;
     const ToDoList = toDoList.getList();
