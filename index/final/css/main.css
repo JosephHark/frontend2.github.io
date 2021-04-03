@@ -1,7 +1,10 @@
 /*Phone*/
-
+html{
+  background-color: #329f5b;
+}
 main {
     width: auto;
+    background-color: white;
 }
 
 .navigation {
@@ -53,7 +56,10 @@ header {
 
 .navigation {
     overflow: hidden;
-    background-color: #333;
+    background-color: #0c8346;
+  }
+  .navigation h1 {
+    color: #433633;
   }
   
   .navigation a {
