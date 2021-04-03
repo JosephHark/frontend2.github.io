@@ -19,8 +19,16 @@
     .navigation li:first-child {
         display: none;
     }
-    .listItems{
+    #listItems{
         margin: 12px;
         padding: 3px;
+    }
+    #hikes:nth-child(odd){
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #hikes:nth-child(even){
+        display: flex;
+        flex-direction: column;
     }
 }
