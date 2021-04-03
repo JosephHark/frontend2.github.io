@@ -19,4 +19,8 @@
     .navigation li:first-child {
         display: none;
     }
+    .listItems{
+        margin: 12px;
+        padding: 3px;
+    }
 }

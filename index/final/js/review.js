@@ -147,7 +147,7 @@ const getNewRegion = () => {
             div.classList.add("sw");
             break;
     }
-    return document.getElementById("region") == region;
+    return document.getElementById("region") === region;
 };
 
 const calcNextItemId = () => {
