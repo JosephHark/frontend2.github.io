@@ -1,17 +1,25 @@
 /*Phone*/
 html{
-  background-color: #329f5b;
+  background-color: #0c8346;
 }
 main {
     width: auto;
     background-color: white;
+}
+header{
+background-color: #329f5b;
+}
+header h1{
+  color: #433633;
+}
+main {
+    width: auto;
 }
 
 .navigation {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    background-color: #0275f4;
 }
 
 .navigation li:first-child {
@@ -40,10 +48,8 @@ main {
 }
 
 header {
-    background-color: #000080;
     padding: 5px 0;
     display: grid;
-    color: #0275f4;
     display: grid;
     grid-template-areas:
         'img img header header header header'
@@ -56,10 +62,7 @@ header {
 
 .navigation {
     overflow: hidden;
-    background-color: #0c8346;
-  }
-  .navigation h1 {
-    color: #433633;
+    background-color: #333;
   }
   
   .navigation a {
