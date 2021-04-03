@@ -61,7 +61,11 @@ const buildListItem = (item) => {
     const region = document.createElement("label");
     region.textContent = item.getRegion();
 
+    const br = document.createElement("br");
+
+
     div.appendChild(name);
+    div.appendChild(br);
     div.appendChild(task);
     div.appendChild(region);
 
@@ -131,19 +135,19 @@ const getNewRegion = () => {
     var region;
     switch (region) {
         case 'ne':
-            element.classList.add(northEast);
+            div.classList.add("ne");
             break;
         case 'nw':
-            element.classList.add(northWest);
+            div.classList.add("nw");
             break;
         case 'se':
-            element.classList.add(southEast);
+            div.classList.add("se");
             break;
         case 'sw':
-            element.classList.add(southWest);
+            div.classList.add("sw");
             break;
     }
-     document.getElementById("region") = region;
+    return document.getElementById("region") == region;
 };
 
 const calcNextItemId = () => {
