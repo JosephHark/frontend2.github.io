@@ -48,39 +48,15 @@ const renderList = () => {
 
 const buildListItem = (item) => {
     const div = document.createElement("div");
-    div.classList.add("item", "active");
+    div.classList.add("item");
 
     const task = document.createElement("label");
     task.htmlFor = item.getId();
     task.textContent = item.getItem();
 
-    let monthNames = ["January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ];
-
-    let d = new Date();
-    let month = monthNames[d.getMonth()];
-    let year = d.getFullYear();
-    let fulldate = d.getDate() + "  " + month + "  " + year;
-    const taskDate = fulldate;
-
-    taskDate.textContent = item.getDate();
-    taskDate.className = "date"
-
     const name = document.createElement("text");
-    const a = " wrote on "
-    name.textContent = item.getName() + a + taskDate;
-    name.className = "name"
+    const a = " wrote: "
+    name.textContent = item.getName() + a;
 
     const region = document.createElement("label");
     region.textContent = item.getRegion();
@@ -133,12 +109,11 @@ const filterAll = () => {
 
 const processSubmission = () => {
     const newEntryText = getNewEntry();
-    const newEntryDate = getNewDate();
     const newEntryname = getNewName();
     const newEntryRegion = getNewRegion();
 
     const nextItemId = calcNextItemId();
-    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryDate, newEntryname, newEntryRegion);
+    const toDoItem = createNewItem(nextItemId, newEntryText, newEntryname, newEntryRegion);
     toDoList.AddItemToList(toDoItem);
     updatePersistentDate(toDoList.getList());
     refreshThePage();
@@ -152,12 +127,23 @@ const getNewName = () => {
     return document.getElementById("newName").value;
 };
 
-const getNewDate = () => {
-    return document.getElementById("newItemDate").value;
-};
-
 const getNewRegion = () => {
-    return document.getElementById("region").value;
+    var region;
+    switch (region) {
+        case 'ne':
+            element.classList.add(northEast);
+            break;
+        case 'nw':
+            element.classList.add(northWest);
+            break;
+        case 'se':
+            element.classList.add(southEast);
+            break;
+        case 'sw':
+            element.classList.add(southWest);
+            break;
+    }
+     document.getElementById("region") = region;
 };
 
 const calcNextItemId = () => {
@@ -169,11 +155,10 @@ const calcNextItemId = () => {
     return nexItemId;
 };
 
-const createNewItem = (itemId, itemText, itemDate, itemName) => {
+const createNewItem = (itemId, itemText, itemName) => {
     const toDo = new ToDoItem()
     toDo.setId(itemId);
     toDo.setItem(itemText);
-    toDo.setDate(itemDate);
     toDo.setName(itemName);
     return toDo;
 };
